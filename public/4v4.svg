@@ -1,41 +1,3 @@
-import { useTranslation } from "react-i18next";
-import "@/i18n/i18n";
-import { useEffect, useState } from "react";
-
-function adjustTextSize(text: string, limit = 8, startingSize = 80) {
-  if (text.length > limit) {
-    let shrink = 0;
-
-    if (text.length - limit >= 25) shrink = (text.length - limit) * 2.2;
-    else if (text.length - limit >= 20) shrink = (text.length - limit) * 2.7;
-    else if (text.length - limit >= 15) shrink = (text.length - limit) * 3.2;
-    else if (text.length - limit >= 10) shrink = (text.length - limit) * 3.7;
-    else if (text.length - limit >= 5) shrink = (text.length - limit) * 5.5;
-    else shrink = (text.length - limit) * 9;
-    return startingSize - shrink;
-  }
-  return startingSize;
-}
-
-interface TitleLogoProps {
-  insert: string;
-}
-
-export default function TitleLogo({ insert }: TitleLogoProps) {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  const hasTitle = insert.length > 0 ? true : false;
-  const { t } = useTranslation();
-
-  if (!isMounted) {
-    return <div className="w-full" />;
-  }
-
-  const logo = `
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
@@ -45,9 +7,32 @@ export default function TitleLogo({ insert }: TitleLogoProps) {
    viewBox="0 0 210 297"
    version="1.1"
    id="svg1"
+   sodipodi:docname="4v4.svg"
+   inkscape:version="1.4.3 (1:1.4.3+202512261035+0d15f75042)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.50583233"
+     inkscape:cx="216.47489"
+     inkscape:cy="-325.20658"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
+     inkscape:window-x="66"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <linearGradient
@@ -136,20 +121,21 @@ export default function TitleLogo({ insert }: TitleLogoProps) {
        ry="34.1432" />
     <g
        id="g1"
-       transform="translate(0.03590853)">
+       transform="translate(2.5128289,0.33864294)">
       <text
          xml:space="preserve"
          style="font-size:86.0347px;font-family:'Modern DOS 8x8';-inkscape-font-specification:'Modern DOS 8x8';text-align:center;letter-spacing:0px;word-spacing:0.0780555px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#c200e3;fill-opacity:1;stroke:#7f0094;stroke-width:8;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-         x="-104.0615"
+         x="-103.31956"
          y="-34.211918"
          id="text1-3"
          transform="scale(-0.9970222,-1.0029867)"><tspan
            id="tspan1-5"
            style="fill:#c200e3;fill-opacity:1;stroke:#7f0094;stroke-width:8;stroke-dasharray:none;stroke-opacity:1"
-           x="-104.0615"
+           x="-103.31956"
            y="-34.211918">v</tspan></text>
       <g
-         id="g46">
+         id="g46"
+         transform="translate(0,3.2306937)">
         <path
            d="m 133.16133,94.070363 h -7.05556 v 7.055567 h -7.05556 v 7.05556 h 14.11112 z m -7.05556,-14.111125 h 21.16669 v 28.222252 h 7.05556 v 7.05556 h -7.05556 v 7.05556 h 7.05556 v 7.05557 h -28.22225 v -7.05557 h 7.05556 v -7.05556 h -28.22225 v -14.11112 h 7.05556 v -7.055567 h 7.05557 V 87.0148 h 7.05556 z"
            id="path45"
@@ -160,11 +146,12 @@ export default function TitleLogo({ insert }: TitleLogoProps) {
            d="m 133.16133,94.070363 h -7.05556 v 7.055567 h -7.05556 v 7.05556 h 14.11112 z m -7.05556,-14.111125 h 21.16669 v 28.222252 h 7.05556 v 7.05556 h -7.05556 v 7.05556 h 7.05556 v 7.05557 h -28.22225 v -7.05557 h 7.05556 v -7.05556 h -28.22225 v -14.11112 h 7.05556 v -7.055567 h 7.05557 V 87.0148 h 7.05556 z"
            id="path47"
            style="font-size:112.889px;font-family:'Modern DOS 8x8';-inkscape-font-specification:'Modern DOS 8x8';text-align:center;letter-spacing:0px;word-spacing:0.11857px;text-anchor:middle;fill:url(#linearGradient24);stroke:#7f0094;stroke-width:9;stroke-linecap:square;stroke-dasharray:none;paint-order:stroke markers fill"
-           transform="rotate(-15)"
-           aria-label="4" />
+           aria-label="4"
+           transform="rotate(-15)" />
       </g>
       <g
-         id="g45">
+         id="g45"
+         transform="translate(0,-0.42154065)">
         <path
            d="m 66.832411,58.226424 -6.81515,-1.826114 -1.826114,6.815149 -6.81515,-1.826114 -1.826114,6.815151 13.6303,3.652228 z m -3.162923,-15.456414 20.445451,5.478342 -7.304456,27.2606 6.81515,1.826114 -1.826114,6.815149 -6.81515,-1.826114 -1.826114,6.815151 6.81515,1.826114 -1.826114,6.815149 -27.2606,-7.304456 1.826114,-6.815149 6.81515,1.826114 1.826114,-6.815151 -27.2606,-7.304455 3.652228,-13.6303 6.81515,1.826113 1.826114,-6.815149 6.81515,1.826114 1.826114,-6.815151 6.81515,1.826114 z"
            id="text8"
@@ -179,13 +166,13 @@ export default function TitleLogo({ insert }: TitleLogoProps) {
       <text
          xml:space="preserve"
          style="font-size:86.0347px;font-family:'Modern DOS 8x8';-inkscape-font-specification:'Modern DOS 8x8';text-align:center;letter-spacing:0px;word-spacing:0.0780555px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#c200e3;fill-opacity:1;stroke:#7f0094;stroke-width:8;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-         x="109.43867"
+         x="109.06768"
          y="109.43983"
          id="text1"
          transform="scale(0.99702219,1.0029867)"><tspan
            id="tspan1"
            style="fill:#c200e3;fill-opacity:1;stroke:#7f0094;stroke-width:8;stroke-dasharray:none;stroke-opacity:1"
-           x="109.43867"
+           x="109.06768"
            y="109.43983">v</tspan></text>
     </g>
     <rect
@@ -193,14 +180,7 @@ export default function TitleLogo({ insert }: TitleLogoProps) {
        id="rect1"
        width="4.3986979"
        height="4.0679688"
-       x="81.954689"
-       y="93.530205" />
+       x="81.946518"
+       y="93.871468" />
   </g>
 </svg>
-  `;
-  return (
-    <div id="titleLogoImg" className="-mt-16 w-full">
-      <div dangerouslySetInnerHTML={{ __html: logo }} />
-    </div>
-  );
-}
