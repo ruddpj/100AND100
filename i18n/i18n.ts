@@ -5,6 +5,7 @@ import translationES from "public/locales/es/translation.json";
 import translationET from "public/locales/et/translation.json";
 import translationFR from "public/locales/fr/translation.json";
 import translationID from "public/locales/id/translation.json";
+import translationSK from "public/locales/sk/translation.json";
 import { initReactI18next } from "react-i18next";
 import format from "./i18n-format";
 
@@ -24,6 +25,9 @@ const resources = {
   fr: {
     translation: translationFR,
   },
+  sk: {
+    translation: translationSK,
+  }
 };
 i18n
   .use(LanguageDetector)
@@ -37,7 +41,7 @@ i18n
     interpolation: {
       format,
     },
-    supportedLngs: ["es", "en", "id", "et", "fr"],
+    supportedLngs: ["es", "en", "id", "et", "fr", "sk"],
   });
 
 export default i18n;

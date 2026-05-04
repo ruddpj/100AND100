@@ -45,6 +45,11 @@ export default function ThemeSwitcher({ game, setGame, send }: ThemeSwitcherProp
       fgcolor: "text-black",
       title: "chroma key",
     },
+    feistival: {
+      bgcolor: "#590d7c",
+      fgcolor: "text-black",
+      title: "feistival",
+    },
   };
 
   const handleThemeChange = (newTheme: string) => {
