@@ -1,0 +1,11 @@
+Toto sú inštrukcie, v ktorom by sa mala nastaviť hra.
+(Ja viem, že si všetko pamätáš).
+
+1. Kliknúť HOSTITEĽ.
+2. Nastaviť jazyk na Slovak.
+3. Nastaviť Theme na Feistival.
+4. Nahrať hru 4v4/4v4.json.
+5. Nahrať logo 4v4/4v4.png.
+6. Zmeniť názvy tímov.
+7. Nastaviť názov finálového kola.
+8. Otvoriť herné okno.

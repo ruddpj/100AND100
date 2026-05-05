@@ -14,6 +14,7 @@ func mergeGame(game *game, newData *game) {
 	game.HideFirstRound = newData.HideFirstRound
 	game.IsFinalRound = newData.IsFinalRound
 	game.IsFinalSecond = newData.IsFinalSecond
+	game.FinalRoundStartingTeam = newData.FinalRoundStartingTeam
 	game.PointTracker = newData.PointTracker
 	game.Settings = newData.Settings
 	game.Teams = newData.Teams

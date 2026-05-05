@@ -80,7 +80,8 @@ type game struct {
 	Round             int                          `json:"round"`
 	Rounds            []round                      `json:"rounds"`
 	FinalRound        []finalRound                 `json:"final_round"`
-	FinalRound2       []finalRound                 `json:"final_round_2"`
+	FinalRound2       []finalRound                 `json:"final_round_2"`	
+	FinalRoundStartingTeam int                     `json:"final_round_starting_team"`	
 	FinalRoundTimers  []int                        `json:"final_round_timers"`
 	Tick              int64                        `json:"tick"`
 	RoundStartTime    int64                        `json:"round_start_time"`
