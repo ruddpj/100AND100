@@ -178,8 +178,21 @@ export default function FinalRoundButtonControls({ game, send, setGame }: FinalR
               const selectedAnswer = effectiveSelection !== 0 ? current.answers[selectedIndex] : null;
               const xPoints = selectedAnswer ? Number(selectedAnswer[1]) || 0 : 0;
 
+              // Determine which team gets the points
+              // Round 1 (not is_final_second) goes to team 0 (alpha)
+              // Round 2 (is_final_second) goes to team 1 (beta)
+              const teamIndex = prevGame.is_final_second ? 1 : 0;
+              
+              // Only award points if this is the first time (going from 0 to positive points)
+              const shouldAwardPoints = current.points === 0 && xPoints > 0;
+              
               const updatedGame = {
                 ...prevGame,
+                teams: prevGame.teams.map((team, index) =>
+                  index === teamIndex && shouldAwardPoints
+                    ? { ...team, points: team.points + xPoints }
+                    : team
+                ),
                 final_round: prevGame.is_final_second
                   ? prevGame.final_round
                   : prevGame.final_round.map((round, index) =>
