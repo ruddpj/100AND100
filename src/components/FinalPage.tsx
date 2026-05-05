@@ -60,7 +60,9 @@ interface FinalPageProps {
 
 export default function FinalPage({ game, timer }: FinalPageProps) {
   const { t } = useTranslation();
-  const total = [...game.final_round, ...game.final_round_2].reduce((sum, round) => sum + round.points, 0);
+  const roundOneTotal = game.final_round.reduce((sum, round) => sum + round.points, 0);
+  const roundTwoTotal = game.final_round_2.reduce((sum, round) => sum + round.points, 0);
+  const total = roundOneTotal + roundTwoTotal;
   const showFirstRound = !game.hide_first_round;
   const showSecondRound = game.is_final_second;
 
@@ -79,12 +81,22 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
         <div className={`grid gap-3 ${showFirstRound && showSecondRound ? "lg:grid-cols-2" : ""}`}>
           {showFirstRound && (
             <div className="grid min-w-0 gap-3 lg:grid-flow-row">
+              <div className="rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
+                <p id="finalRound1TotalText" className="text-2xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
+                  {t("Round 1")}: {t("number", { count: roundOneTotal })}
+                </p>
+              </div>
               <Answers finalRoundNumber={1} round={game.final_round} />
             </div>
           )}
 
           {showSecondRound && (
             <div className="grid min-w-0 gap-3 lg:grid-flow-row">
+              <div className="rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
+                <p id="finalRound2TotalText" className="text-2xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
+                  {t("Round 2")}: {t("number", { count: roundTwoTotal })}
+                </p>
+              </div>
               <Answers finalRoundNumber={2} round={game.final_round_2} />
             </div>
           )}

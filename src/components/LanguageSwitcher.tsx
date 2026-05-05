@@ -28,6 +28,7 @@ export default function LanguageSwitcher({ onChange }: LanguageSwitcherProps) {
         <option value="id">Indonesian ({t("indonesian")})</option>
         <option value="et">Estonian ({t("estonian")})</option>
         <option value="fr">Français ({t("french")})</option>
+        <option value="sk">Slovak ({t("slovak")})</option>
       </select>
     </div>
   );

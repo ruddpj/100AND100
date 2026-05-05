@@ -37,164 +37,279 @@ export default function TitleLogo({ insert }: TitleLogoProps) {
 
   const logo = `
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 210 297"
-   version="1.1"
-   id="svg1"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <defs
-     id="defs1">
-    <linearGradient
-       id="linearGradient27">
-      <stop
-         style="stop-color:#ffab1f;stop-opacity:1;"
-         offset="0"
-         id="stop28" />
-      <stop
-         style="stop-color:#fff91f;stop-opacity:1;"
-         offset="1"
-         id="stop27" />
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 507.285 250.08613"
+  version="1.1"
+  id="svg72"
+>
+  <metadata id="metadata76">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs id="defs22">
+    <linearGradient id="c">
+      <stop offset="0" stop-color="#ff6603" id="stop2" />
+      <stop offset="1" stop-color="#ffd0b2" id="stop4" />
+    </linearGradient>
+    <linearGradient id="a">
+      <stop offset="0" stop-color="#039" id="stop7" />
+      <stop offset="1" stop-color="#3669ff" id="stop9" />
+    </linearGradient>
+    <linearGradient id="b">
+      <stop offset="0" stop-color="#f60" id="stop12" />
+      <stop offset="1" stop-color="#ffeb00" id="stop14" />
     </linearGradient>
     <linearGradient
-       id="linearGradient22">
-      <stop
-         style="stop-color:#fff91f;stop-opacity:1;"
-         offset="0"
-         id="stop23" />
-      <stop
-         style="stop-color:#ffa51f;stop-opacity:1;"
-         offset="1"
-         id="stop24" />
-    </linearGradient>
+      xlink:href="#a"
+      id="d"
+      x1="119.818"
+      y1="182.24699"
+      x2="96.176003"
+      y2="80.245003"
+      gradientUnits="userSpaceOnUse"
+    />
     <linearGradient
-       id="linearGradient5">
-      <stop
-         style="stop-color:#fff91f;stop-opacity:1;"
-         offset="0.31453544"
-         id="stop6" />
-      <stop
-         style="stop-color:#efff4f;stop-opacity:0;"
-         offset="1"
-         id="stop7" />
-    </linearGradient>
+      xlink:href="#c"
+      id="e"
+      x1="161.01601"
+      y1="131.42599"
+      x2="248.19501"
+      y2="82.411003"
+      gradientUnits="userSpaceOnUse"
+    />
     <linearGradient
-       xlink:href="#linearGradient5"
-       id="linearGradient7"
-       x1="66.660538"
-       y1="59.953838"
-       x2="167.2851"
-       y2="122.14324"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.0980392,0,0,1.0980392,-20.084498,-20.351368)" />
+      id="f"
+      xlink:href="#b"
+      x1="15.48"
+      x2="14.362"
+      y1="${hasTitle ? 10 : 10}"
+      y2="${hasTitle ? 60 : 60}"
+      gradientUnits="userSpaceOnUse"
+    />
     <linearGradient
-       xlink:href="#linearGradient22"
-       id="linearGradient24"
-       x1="123.23202"
-       y1="87.224754"
-       x2="154.57564"
-       y2="127.68628"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-0.3473126,5.3852743)" />
+      id="g"
+      xlink:href="#b"
+      gradientUnits="userSpaceOnUse"
+      x1="15.48"
+      x2="14.362"
+      y1="${hasTitle ? 100 : 50}"
+      y2="${hasTitle ? 140 : 120}"
+    />
     <linearGradient
-       xlink:href="#linearGradient27"
-       id="linearGradient28"
-       x1="56.912411"
-       y1="79.6577"
-       x2="87.054573"
-       y2="30.348143"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="rotate(15,-20.376478,0.52373971)" />
+      id="h"
+      xlink:href="#b"
+      x1="21.422001"
+      x2="19.037001"
+      y1="${hasTitle ? 150 : 120}"
+      y2="${hasTitle ? 180 : 150}"
+      gradientUnits="userSpaceOnUse"
+    />
   </defs>
-  <g
-     id="layer1">
-    <ellipse
-       style="fill:#7f0094;fill-opacity:1;stroke:#fff96e;stroke-width:3.72301;stroke-linecap:square;stroke-opacity:1;paint-order:stroke markers fill"
-       id="ellipse7"
-       cx="108.35624"
-       cy="71.529175"
-       rx="72.138496"
-       ry="46.138496" />
-    <ellipse
-       style="fill:#ffc402;fill-opacity:1;stroke:#fff96e;stroke-width:3.72301;stroke-linecap:square;stroke-opacity:1;paint-order:stroke markers fill"
-       id="path1"
-       cx="108.35624"
-       cy="71.529175"
-       rx="68.341743"
-       ry="42.237522" />
-    <ellipse
-       style="fill:url(#linearGradient7);fill-opacity:1;stroke:none;stroke-width:3.72301;stroke-linecap:square;stroke-opacity:1;paint-order:stroke markers fill"
-       id="path2"
-       cx="108.35624"
-       cy="79.623497"
-       rx="55.244858"
-       ry="34.1432" />
+  <g id="g120" transform="translate(100,30.0287)">
     <g
-       id="g1"
-       transform="translate(0.03590853)">
-      <text
-         xml:space="preserve"
-         style="font-size:86.0347px;font-family:'Modern DOS 8x8';-inkscape-font-specification:'Modern DOS 8x8';text-align:center;letter-spacing:0px;word-spacing:0.0780555px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#c200e3;fill-opacity:1;stroke:#7f0094;stroke-width:8;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-         x="-104.0615"
-         y="-34.211918"
-         id="text1-3"
-         transform="scale(-0.9970222,-1.0029867)"><tspan
-           id="tspan1-5"
-           style="fill:#c200e3;fill-opacity:1;stroke:#7f0094;stroke-width:8;stroke-dasharray:none;stroke-opacity:1"
-           x="-104.0615"
-           y="-34.211918">v</tspan></text>
-      <g
-         id="g46">
-        <path
-           d="m 133.16133,94.070363 h -7.05556 v 7.055567 h -7.05556 v 7.05556 h 14.11112 z m -7.05556,-14.111125 h 21.16669 v 28.222252 h 7.05556 v 7.05556 h -7.05556 v 7.05556 h 7.05556 v 7.05557 h -28.22225 v -7.05557 h 7.05556 v -7.05556 h -28.22225 v -14.11112 h 7.05556 v -7.055567 h 7.05557 V 87.0148 h 7.05556 z"
-           id="path45"
-           style="font-size:112.889px;font-family:'Modern DOS 8x8';-inkscape-font-specification:'Modern DOS 8x8';text-align:center;letter-spacing:0px;word-spacing:0.11857px;text-anchor:middle;fill:none;stroke:#fff96e;stroke-width:12;stroke-linecap:square;stroke-opacity:1;paint-order:stroke markers fill"
-           transform="rotate(-15)"
-           aria-label="4" />
-        <path
-           d="m 133.16133,94.070363 h -7.05556 v 7.055567 h -7.05556 v 7.05556 h 14.11112 z m -7.05556,-14.111125 h 21.16669 v 28.222252 h 7.05556 v 7.05556 h -7.05556 v 7.05556 h 7.05556 v 7.05557 h -28.22225 v -7.05557 h 7.05556 v -7.05556 h -28.22225 v -14.11112 h 7.05556 v -7.055567 h 7.05557 V 87.0148 h 7.05556 z"
-           id="path47"
-           style="font-size:112.889px;font-family:'Modern DOS 8x8';-inkscape-font-specification:'Modern DOS 8x8';text-align:center;letter-spacing:0px;word-spacing:0.11857px;text-anchor:middle;fill:url(#linearGradient24);stroke:#7f0094;stroke-width:9;stroke-linecap:square;stroke-dasharray:none;paint-order:stroke markers fill"
-           transform="rotate(-15)"
-           aria-label="4" />
-      </g>
-      <g
-         id="g45">
-        <path
-           d="m 66.832411,58.226424 -6.81515,-1.826114 -1.826114,6.815149 -6.81515,-1.826114 -1.826114,6.815151 13.6303,3.652228 z m -3.162923,-15.456414 20.445451,5.478342 -7.304456,27.2606 6.81515,1.826114 -1.826114,6.815149 -6.81515,-1.826114 -1.826114,6.815151 6.81515,1.826114 -1.826114,6.815149 -27.2606,-7.304456 1.826114,-6.815149 6.81515,1.826114 1.826114,-6.815151 -27.2606,-7.304455 3.652228,-13.6303 6.81515,1.826113 1.826114,-6.815149 6.81515,1.826114 1.826114,-6.815151 6.81515,1.826114 z"
-           id="text8"
-           style="font-size:112.889px;font-family:'Modern DOS 8x8';-inkscape-font-specification:'Modern DOS 8x8';text-align:center;letter-spacing:0px;word-spacing:0.11857px;text-anchor:middle;fill:none;stroke:#fff96e;stroke-width:12;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-           aria-label="4" />
-        <path
-           d="m 66.832411,58.226424 -6.815151,-1.826114 -1.826113,6.815149 -6.81515,-1.826114 -1.826114,6.815151 13.6303,3.652228 z m -3.162923,-15.456414 20.445451,5.478342 -7.304456,27.2606 6.81515,1.826114 -1.826114,6.815149 -6.81515,-1.826114 -1.826114,6.815151 6.81515,1.826114 -1.826114,6.815149 -27.2606,-7.304456 1.826114,-6.815149 6.81515,1.826114 1.826114,-6.815151 -27.2606,-7.304455 3.652228,-13.6303 6.81515,1.826113 1.826113,-6.815149 6.815151,1.826114 1.826114,-6.815151 6.81515,1.826114 z"
-           id="path44"
-           style="font-size:112.889px;font-family:'Modern DOS 8x8';-inkscape-font-specification:'Modern DOS 8x8';text-align:center;letter-spacing:0px;word-spacing:0.11857px;text-anchor:middle;fill:url(#linearGradient28);stroke:#7f0094;stroke-width:9;stroke-linecap:square;stroke-dasharray:none;paint-order:stroke markers fill"
-           aria-label="4" />
-      </g>
-      <text
-         xml:space="preserve"
-         style="font-size:86.0347px;font-family:'Modern DOS 8x8';-inkscape-font-specification:'Modern DOS 8x8';text-align:center;letter-spacing:0px;word-spacing:0.0780555px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#c200e3;fill-opacity:1;stroke:#7f0094;stroke-width:8;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-         x="109.43867"
-         y="109.43983"
-         id="text1"
-         transform="scale(0.99702219,1.0029867)"><tspan
-           id="tspan1"
-           style="fill:#c200e3;fill-opacity:1;stroke:#7f0094;stroke-width:8;stroke-dasharray:none;stroke-opacity:1"
-           x="109.43867"
-           y="109.43983">v</tspan></text>
+      transform="translate(63.490999,-44.629822)"
+      stroke-linejoin="round"
+      stroke-dashoffset="1.457"
+      paint-order="stroke fill markers"
+      id="g30"
+    >
+      <ellipse
+        cx="105.604"
+        cy="151.672"
+        rx="168.745"
+        ry="95.946999"
+        fill="url(#d)"
+        stroke="#000000"
+        stroke-width="0.7"
+        id="ellipse24"
+        style="fill: url(#d)"
+      />
+      <ellipse
+        cx="104.889"
+        cy="151.70599"
+        rx="150.55701"
+        ry="85.606003"
+        fill="none"
+        stroke="url(#e)"
+        stroke-width="8.307"
+        id="ellipse26"
+        style="stroke: url(#e)"
+      />
+      <ellipse
+        cx="102.357"
+        cy="151.52499"
+        rx="135.53101"
+        ry="77.061996"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="3.656"
+        id="ellipse28"
+      />
     </g>
-    <rect
-       style="fill:#7f0094;fill-opacity:1;stroke:none;stroke-width:7.99999;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
-       id="rect1"
-       width="4.3986979"
-       height="4.0679688"
-       x="81.954689"
-       y="93.530205" />
+    <g fill="#404040" id="g52" transform="translate(-2.3250272e-6,-2.2138205)">
+      <text
+        transform="rotate(-4.3169998)"
+        id="text36"
+      >
+        <tspan x="162" y="84" id="tspan34">
+          <tspan
+            style="
+              -inkscape-font-specification: 'C059 Bold';
+              text-align: center;
+            "
+            font-weight="700"
+            font-size="${adjustTextSize(insert)}"
+            font-family="C059"
+            text-anchor="middle"
+            id="tspan32"
+          >
+            ${insert}
+          </tspan>
+        </tspan>
+      </text>
+    <text
+      transform="rotate(-4.3169998)"
+      id="text58"
+    >
+      <tspan
+        style="fill:url(#f);"
+        y="80.058754"
+        x="160.03912"
+        font-weight="700"
+        font-family="C059"
+        id="tspan56"
+      >
+        <tspan
+          style="fill: url(#f);"
+          font-size="${adjustTextSize(insert)}"
+          text-anchor="middle"
+          stroke="#000000"
+          stroke-width="1.13319"
+          id="tspan54"
+        >
+          ${insert}
+        </tspan>
+      </tspan>
+    </text>
+      <text
+        id="text50"
+         transform="rotate(-4.3169998)"
+      >
+        <tspan
+          y="${hasTitle ? 218 : 190}"
+          font-weight="700"
+          x="159"
+          font-family="C059"
+          id="tspan48"
+        >
+          <tspan
+            text-anchor="middle"
+            stroke-width="0.7"
+            font-size="${adjustTextSize(t("feud"))}"
+            stroke-linejoin="round"
+            id="tspan46"
+          >
+            <tspan
+              id="tspan44"
+            >
+              ${t("feud")}
+            </tspan>
+          </tspan>
+        </tspan>
+      </text>
+    <text
+      stroke="#000000"
+      transform="rotate(-4.3169998)"
+      id="text70"
+    >
+      <tspan
+        y="${hasTitle ? 218 : 187}"
+        x="156"
+        font-weight="700"
+        font-family="C059"
+        id="tspan68"
+      >
+        <tspan
+          style="
+            -inkscape-font-specification: 'C059 Bold';
+            text-align: center;
+            fill: url(#h);
+          "
+         font-size="${adjustTextSize(t("feud"))}"
+          text-anchor="middle"
+          stroke-width="1.13319"
+          id="tspan66"
+        >
+          ${t("feud")}
+        </tspan>
+      </tspan>
+    </text>
+
+      <text
+        x="89.712997"
+        transform="rotate(-4.3169998)"
+        id="text42"
+      >
+        <tspan
+          style="-inkscape-font-specification: 'C059 Bold'"
+          y="${hasTitle ? 148 : 124}"
+          x="158"
+          font-weight="700"
+          font-family="C059"
+          id="tspan40"
+        >
+          <tspan
+            style="
+              -inkscape-font-specification: 'C059 Bold';
+              text-align: center;
+            "
+            font-size="${adjustTextSize(t("friendly"))}"
+            text-anchor="middle"
+            stroke-width="0.7"
+            stroke-linejoin="round"
+            id="tspan38"
+          >
+            ${t("friendly")}
+          </tspan>
+        </tspan>
+      </text>
+
+    <text
+      transform="rotate(-4.3169998)"
+      id="text64"
+    >
+      <tspan
+        y="${hasTitle ? 148 : 120}"
+        x="155.30832"
+        font-weight="700"
+        font-family="C059"
+        id="tspan62"
+      >
+        <tspan
+          style="fill: url(#g);"
+          font-size="${adjustTextSize(t("friendly"))}"
+          text-anchor="middle"
+          stroke="#000000"
+          stroke-width="1.13319"
+          stroke-linejoin="round"
+          id="tspan60"
+        >
+          ${t("friendly")}
+        </tspan>
+      </tspan>
+    </text>
+    </g>
   </g>
 </svg>
   `;
