@@ -79,6 +79,28 @@ export default function GameDisplay({
             {t("Current Screen")}: {current_screen}
           </p>
         </div>
+        <div className="flex flex-row items-center justify-evenly space-x-5">
+          <p id="finalRoundStartingTeamLabel" className="text-xl text-foreground">
+            {t("First team")}:
+          </p>
+          <select
+            id="finalRoundStartingTeamSelector"
+            className="grow rounded border-4 bg-secondary-300 p-4 text-2xl text-foreground"
+            value={game.final_round_starting_team ?? 0}
+            onChange={(e) => {
+              game.final_round_starting_team = parseInt(e.target.value, 10);
+              // @ts-expect-error: need a better way to update these values
+              setGame((prv) => ({ ...prv }));
+              send({ action: "data", data: game });
+            }}
+          >
+            {game.teams.map((team, index) => (
+              <option key={`starting-team-${index}`} value={index}>
+                {team.name || `${t("Team")} ${index + 1}`}
+              </option>
+            ))}
+          </select>
+        </div>
 
         <div className="flex grow flex-row space-x-10">
           {/* TITLE SCREEN BUTTON */}

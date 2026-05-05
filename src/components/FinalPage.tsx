@@ -60,9 +60,13 @@ interface FinalPageProps {
 
 export default function FinalPage({ game, timer }: FinalPageProps) {
   const { t } = useTranslation();
-  const roundOneTotal = game.final_round.reduce((sum, round) => sum + round.points, 0);
-  const roundTwoTotal = game.final_round_2.reduce((sum, round) => sum + round.points, 0);
-  const total = roundOneTotal + roundTwoTotal;
+  const roundOnePoints = game.final_round.reduce((sum, round) => sum + round.points, 0);
+  const roundTwoPoints = game.final_round_2.reduce((sum, round) => sum + round.points, 0);
+  const startingTeam = game.final_round_starting_team ?? 0;
+  const roundOneTotal = game.teams[startingTeam]?.points;
+  const roundTwoTotal = game.teams[1 - startingTeam]?.points;
+  const currentTeamIndex = game.is_final_second ? 1 - startingTeam : startingTeam;
+  const currentTeamTotal = game.teams[currentTeamIndex]?.points;
   const showFirstRound = !game.hide_first_round;
   const showSecondRound = game.is_final_second;
 
@@ -81,22 +85,12 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
         <div className={`grid gap-3 ${showFirstRound && showSecondRound ? "lg:grid-cols-2" : ""}`}>
           {showFirstRound && (
             <div className="grid min-w-0 gap-3 lg:grid-flow-row">
-              <div className="rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
-                <p id="finalRound1TotalText" className="text-2xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
-                  {t("Round 1")}: {t("number", { count: roundOneTotal })}
-                </p>
-              </div>
               <Answers finalRoundNumber={1} round={game.final_round} />
             </div>
           )}
 
           {showSecondRound && (
             <div className="grid min-w-0 gap-3 lg:grid-flow-row">
-              <div className="rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
-                <p id="finalRound2TotalText" className="text-2xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
-                  {t("Round 2")}: {t("number", { count: roundTwoTotal })}
-                </p>
-              </div>
               <Answers finalRoundNumber={2} round={game.final_round_2} />
             </div>
           )}
@@ -104,6 +98,13 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
       </div>
 
       <div className="relative my-3 h-16 w-full max-w-[1060px]">
+        {showFirstRound && showSecondRound && (
+          <div className="absolute left-0 top-1/2 w-fit -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
+            <p id="finalRoundFirstTeamTotalText" className="text-4xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
+              {t("total")} {t("number", { count: game.teams[startingTeam]?.points })}
+            </p>
+          </div>
+        )}
         {/* Timer */}
         <div className="absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
           <p id="finalRoundTimerLabel" className="text-4xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
@@ -114,14 +115,14 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
         {/* Total */}
         <div className="absolute right-0 top-1/2 w-fit -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
           <p id="finalRoundTotalPointsText" className="text-4xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
-            {t("total")} {t("number", { count: total })}
+            {t("total")} {t("number", { count: currentTeamTotal })}
           </p>
         </div>
       </div>
 
       {/* WIN TEXT */}
       <div className="text-center">
-        {total >= 200 ? (
+        {currentTeamTotal >= 9999 ? (
           <p
             id="finalRoundWinText"
             className="text-7xl font-bold uppercase leading-none text-foreground"
