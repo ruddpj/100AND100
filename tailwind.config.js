@@ -208,7 +208,11 @@ module.exports = {
           name: "feistival",
           extend: {
             colors: {
+<<<<<<< HEAD
               background: "#6a0b96",
+=======
+              background: "#590d7c",
+>>>>>>> bfd9386c6d08361a88fbd89813316531d5b23db3
               success: {
                 900: "#365314",
                 700: "#3F6212",
@@ -237,10 +241,17 @@ module.exports = {
                 200: "#FEF08A",
               },
               primary: {
+<<<<<<< HEAD
                 900: "#631696",
                 700: "#8d1dd8",
                 500: "#b163f1",
                 300: "#ca93fd",
+=======
+                900: "#3b1e8a",
+                700: "#5e1dd8",
+                500: "#7d63f1",
+                300: "#af93fd",
+>>>>>>> bfd9386c6d08361a88fbd89813316531d5b23db3
                 200: "#e0bffe",
               },
               foreground: "white",

@@ -348,6 +348,23 @@ export default function GamePage() {
 
     return (
       <>
+<<<<<<< HEAD
+=======
+        {!isHost ? (
+          <div className="absolute flex w-screen flex-col items-end">
+            <button
+              className="m-1 rounded-lg bg-secondary-500 p-2 font-bold uppercase shadow-md hover:bg-secondary-200"
+              id="quitButton"
+              onClick={() => {
+                cookieCutter.set("session", "");
+                window.location.href = "/";
+              }}
+            >
+              {t("quit")}
+            </button>
+          </div>
+        ) : null}
+>>>>>>> bfd9386c6d08361a88fbd89813316531d5b23db3
         <StrikeOverlay count={showMistake} />
         <div className={`${activeTheme} game-screen min-h-screen bg-background`}>
           <div className="">{gameSession}</div>
