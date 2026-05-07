@@ -148,15 +148,6 @@ export default function BuzzerPage({ ws, game, id, setGame, room, setTeam, team 
     return (
       <>
         <StrikeOverlay count={showMistake} />
-        <button
-          id="quitButton"
-          className="text-1xl z-50 w-24 self-end rounded-lg bg-secondary-900 p-2 font-bold uppercase shadow-md hover:bg-secondary-300"
-          onClick={() => {
-            send({ action: "quit" });
-          }}
-        >
-          {t("quit")}
-        </button>
         {id in game.registeredPlayers && game.registeredPlayers[id].team !== null ? (
           <>
             {!game.title && !game.is_final_round ? (

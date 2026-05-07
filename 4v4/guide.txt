@@ -1,7 +1,12 @@
 Toto sú inštrukcie, v ktorom by sa mala nastaviť hra.
 (Ja viem, že si všetko pamätáš).
 
+docker run -p 443:443 -ti 4v4:latest 
+
+https://localhost:443/
+
 1. Kliknúť HOSTITEĽ.
+2. Hide join info.
 2. Nastaviť jazyk na Slovak.
 3. Nastaviť Theme na Feistival.
 4. Nahrať hru 4v4/4v4.json.
