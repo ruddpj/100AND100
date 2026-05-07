@@ -1,81 +1,109 @@
 {
   "rounds": [
     {
-      "question": "Kto ma najväčšie kúty?",
+      "question": "Čo si doma myslia, že robíš?",
       "answers": [
         {
-          "ans": "Laura",
+          "ans": "ITčkár",
           "pnt": 35
         },
         {
-          "ans": "Maťko",
+          "ans": "Elektrikár",
           "pnt": 20
+        },
+        {
+          "ans": "Hacker",
+          "pnt": 1
+        },
+        {
+          "ans": "Programátor",
+          "pnt": 1
+        },
+        {
+          "ans": "Strojár",
+          "pnt": 1
         }
       ],
       "multiply": 1
     },
     {
-      "question": "How Long Before Christmas Should You Send Cards",
+      "question": "Najčastejšia výhovorka prečo neprídeš na cvičenie/prednášku?",
       "answers": [
         {
-          "ans": "Two Weeks",
+          "ans": "Zaspal som",
           "pnt": 49
         },
         {
-          "ans": "One Week",
+          "ans": "Choroba",
           "pnt": 28
         },
         {
-          "ans": "Three Weeks",
+          "ans": "Opica",
           "pnt": 26
+        },
+        {
+          "ans": "Doprava",
+          "pnt": 1
+        },
+        {
+          "ans": "Práca",
+          "pnt": 1
         }
       ],
       "multiply": 1
     },
     {
-      "question": "Other Than Turkey, What Else is Crucial For Christmas Dinner?",
+      "question": "Čo robíš vo voľnom čase?",
       "answers": [
         {
-          "ans": "Potatoes",
+          "ans": "Nemám voľný čas",
           "pnt": 38
         },
         {
-          "ans": "Dressing/Stuffing",
+          "ans": "Športujem",
           "pnt": 20
         },
         {
-          "ans": "Ham",
+          "ans": "Hrám počítačové hry",
           "pnt": 15
         },
         {
-          "ans": "Booze",
+          "ans": "Som na sociálnych sieťach",
           "pnt": 13
         },
         {
-          "ans": "Cranberry Sauce",
+          "ans": "Chodím do baru/pubu",
           "pnt": 9
         },
         {
-          "ans": "Vegetables",
-          "pnt": 3
+          "ans": "Chodím von s kamarátmi",
+          "pnt": 1
         }
       ],
       "multiply": 1
     },
     {
-      "question": "What is Another Name For Santa?",
+      "question": "Aký je najlepší úlovok na JobFair?",
       "answers": [
         {
-          "ans": "St. Nicholas/St. Nick",
+          "ans": "Elektronika",
           "pnt": 60
         },
         {
-          "ans": "Kris Kringle",
+          "ans": "Plátenka",
           "pnt": 29
         },
         {
-          "ans": "Father Christmas",
+          "ans": "Fľaša",
           "pnt": 11
+        },
+        {
+          "ans": "Písacie potreby",
+          "pnt": 1
+        },
+        {
+          "ans": "Snacky",
+          "pnt": 1
         }
       ],
       "multiply": 1
@@ -83,137 +111,131 @@
   ],
   "final_round": [
     {
-      "question": "Something People Do on Christmas Day",
+      "question": "Aká je najlepšia akcia?",
       "answers": [
         [
-          "Open gifts",
-          70
+          "Feistival",
+          52
         ],
         [
-          "Eat",
-          10
-        ],
-        [
-          "Go to Church",
-          8
-        ],
-        [
-          "Sleep",
-          7
-        ],
-        [
-          "See Family",
-          4
-        ]
-      ]
-    },
-    {
-      "question": "Name Something You Can Hang On The Christmas Tree",
-      "answers": [
-        [
-          "Lights",
-          30
-        ],
-        [
-          "Ornaments",
-          25
-        ],
-        [
-          "An Angel",
+          "JobFair",
           22
         ],
         [
-          "Candy Cane",
-          13
+          "Kvapka",
+          8
         ],
         [
-          "Tinsel",
-          9
+          "Openslava",
+          4
+        ],
+        [
+          "Kino",
+          5
+        ],
+        [
+          "Biznis Raňajky",
+          3
+        ],
+        [
+          "Palacinka",
+          7
         ]
       ]
     },
     {
-      "question": "Name Something Mrs. Claus Might Leave the North Pole to Escape From",
+      "question": "Aký je najlepší odbor na FEI?",
       "answers": [
         [
-          "The Cold",
-          33
+          "IKT",
+          25
         ],
         [
-          "Santa",
-          31
+          "RK",
+          27
         ],
         [
-          "Annoying Elves",
+          "API",
           29
         ],
         [
-          "Reindeer",
+          "Mechatronika",
+          12
+        ],
+        [
+          "DT",
+          5
+        ],
+        [
+          "Kozmické Inž",
+          3
+        ],
+        [
+          "Energ",
+          2
+        ]
+      ]
+    },
+    {
+      "question": "Aké AI ti pomáha pri učení?",
+      "answers": [
+        [
+          "ChatGPT",
+          45
+        ],
+        [
+          "Gemini",
+          39
+        ],
+        [
+          "Claude",
+          7
+        ],
+        [
+          "Deepseek",
+          6
+        ],
+        [
+          "Copilot",
           3
         ]
       ]
     },
     {
-      "question": "What Present Do You Think Santa Would Like For Christmas",
+      "question": "Aká je najlepšia telesná, ktorú si vieš zapísať?",
       "answers": [
         [
-          "A Vacation",
-          72
+          "Streľba",
+          26
         ],
         [
-          "New Suit",
-          16
+          "Kruhovy Tren",
+          6
         ],
         [
-          "Cookies",
-          16
+          "Krav Maga",
+          11
         ],
         [
-          "Booze",
-          4
+          "Posilka",
+          29
         ],
         [
-          "Mrs. Claus",
-          4
+          "Plavanie",
+          17
         ],
         [
-          "Hand Warmers",
-          3
-        ]
-      ]
-    },
-    {
-      "question": "What Present Do You Think Santa Would Like For Christmas",
-      "answers": [
-        [
-          "A Vacation",
-          72
-        ],
-        [
-          "New Suit",
-          16
-        ],
-        [
-          "Cookies",
-          16
-        ],
-        [
-          "Booze",
-          4
-        ],
-        [
-          "Mrs. Claus",
-          4
-        ],
-        [
-          "Hand Warmers",
-          3
+          "E-Sport",
+          10
         ]
       ]
     }
   ],
   "final_round_timers": [
-    40,
-    45
-  ]
+    25,
+    25
+  ],
+  "settings": {
+    "theme": "default"
+  }
 }
