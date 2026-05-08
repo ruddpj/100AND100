@@ -43,13 +43,19 @@ make stop
 - [x] json otazok
 - [x] json themes
 - [x] json preklady
-    - [ ] final screen - fast money?
+    - [ ] final screen replace 'fast money'->'finale'
 - [x] logo
-- [ ] qr kod
 - [ ] hudba sfx medzi roundmi (review)
 - [ ] final round body rozne
     - [x] count final round 1 and 2 per team (2 totals)
     - [ ] body timov vo final
 
-- [ ] timer?
+- [ ] timer in rounds (5s)
 - [ ] klasifikacia slido?
+    - [ ] qr screen
+    - [ ] try out slido
+- [ ] increase round question size
+- [ ] SPEAI logo - better position/size
+- [ ] round table bg, font shadows->outline
+
+- [ ] try to have one-column table
