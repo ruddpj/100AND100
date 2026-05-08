@@ -6,14 +6,14 @@ Toto sú inštrukcie, v ktorom by sa mala nastaviť hra.
 ---
 0. Build image (dev-only)  
 ```
-docker build -t 4v4:latest -f Dockerfile.allinone .
+make build
 ```
 
 ---
 1. Spustit  
   *(over porty 3000,8000,443, prip. ine beziace docker containery)*:  
 ```
-docker run -p 443:443 -ti 4v4:latest
+make run
 ```
 2. V browseri otvorit url:
 https://localhost:443/
@@ -29,6 +29,13 @@ https://localhost:443/
 6. Zmeniť názvy tímov na: **TODO**
 7. Nastaviť názov finálového kola.
 8. Otvoriť herné okno.
+
+---
+
+1. Zastavit  
+```
+make stop
+```
 
 ---
 ### TODOs:
