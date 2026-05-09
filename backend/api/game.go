@@ -35,6 +35,7 @@ type settings struct {
 	PlayerBuzzerSound    bool   `json:"player_buzzer_sound"`
 	FirstBuzzerSoundOnly bool   `json:"first_buzzer_sound_only"`
 	HideJoinInfo         bool   `json:"hide_join_info"`
+	HideQuestionsOnRoundBegin    bool   `json:"hide_questions_on_round_begin"`
 }
 
 type team struct {
@@ -113,6 +114,7 @@ func NewGame(roomCode string) room {
 				HideQuestions:   true,
 				Theme:           "default",
 				FinalRoundTitle: nil,
+				HideQuestionsOnRoundBegin: true,
 			},
 			Teams: []team{
 				{

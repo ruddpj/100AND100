@@ -101,6 +101,7 @@ export interface Settings {
   player_buzzer_sound: boolean;
   first_buzzer_sound_only: boolean;
   hide_join_info: boolean;
+  hide_questions_on_round_begin: boolean;
 }
 
 export interface SettingsTheme {

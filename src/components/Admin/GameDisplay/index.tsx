@@ -156,6 +156,9 @@ export default function GameDisplay({
               game.teams[0].mistakes = 0;
               game.teams[1].mistakes = 0;
               game.title = false;
+              if (game.settings.hide_questions_on_round_begin == true) {
+                  game.settings.hide_questions = true;
+              }
               // @ts-expect-error: need a better way to update these values
               setGame((prv) => ({ ...prv }));
               setPointsGiven({
@@ -183,6 +186,9 @@ export default function GameDisplay({
               game.is_final_round = false;
               game.is_final_second = false;
               game.round = 0;
+              if (game.settings.hide_questions_on_round_begin == true) {
+                  game.settings.hide_questions = true;
+              }
               // @ts-expect-error: need a better way to update these values
               setGame((prv) => ({
                 ...prv,
@@ -210,6 +216,9 @@ export default function GameDisplay({
               game.teams[1].mistakes = 0;
               if (game.round < game.rounds.length - 1) {
                 game.round = game.round + 1;
+              }
+              if (game.settings.hide_questions_on_round_begin == true) {
+                  game.settings.hide_questions = true;
               }
               // @ts-expect-error: need a better way to update these values
               setGame((prv) => ({ ...prv }));

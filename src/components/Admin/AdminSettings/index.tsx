@@ -31,6 +31,14 @@ export default function AdminSettings({ game, setGame, send, hostPassword }: Adm
           tooltip="Hide the room code and team info on the title screen"
           settingKey="hide_join_info"
         />
+        <SettingsCheckbox
+          game={game}
+          setGame={setGame}
+          send={send}
+          label="Hide Question on Next Round"
+          tooltip="Hide the question when beginning new round"
+          settingKey="hide_questions_on_round_begin"
+        />
         <div className="flex flex-row items-center space-x-2">
           <ToolTipIcon message={t("Used when setting up buzzers on an external admin device.")} />
           <p className="text-xl capitalize text-foreground">{t("host password")}:</p>
