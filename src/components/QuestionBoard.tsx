@@ -112,13 +112,13 @@ function FlipCard({ index, ans, pnt, trig }: { index: number; ans: string; pnt: 
 }
 
 export default function QuestionBoard({ round }: QuestionBoardProps) {
-  const slots = Array.from({ length: 8 }, (_, i) =>
+  const slots = Array.from({ length: 6 }, (_, i) =>
     i < round.answers.length ? { ...round.answers[i], index: i } : null,
   );
 
   return (
     <div
-      className="w-[1060px] aspect-[16/9] rounded-2xl bg-black p-[26px] grid grid-cols-2 grid-rows-4 grid-flow-col gap-x-3 gap-y-6 font-oswald"
+      className="w-[1060px] aspect-[13/9] rounded-2xl bg-black p-[20px] grid grid-cols-1 grid-rows-6 grid-flow-col gap-x-7 gap-y-3 font-oswald"
     >
       {slots.map((slot, i) => (
         <div
