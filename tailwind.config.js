@@ -237,11 +237,11 @@ module.exports = {
                 200: "#FEF08A",
               },
               primary: {
-                900: "#3b1e8a",
-                700: "#5e1dd8",
-                500: "#7d63f1",
-                300: "#af93fd",
-                200: "#e0bffe",
+                200: "#EEE7F2",
+                300: "#D6C3DE",
+                500: "#BD9ECB",
+                700: "#8B56A3",
+                900: "#590D7C",
               },
               foreground: "white",
               fastm: {
