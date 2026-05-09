@@ -66,26 +66,28 @@ type finalRound struct {
 }
 
 type game struct {
-	Room              string                       `json:"room"`
-	RegisteredPlayers map[string]*registeredPlayer `json:"registeredPlayers"`
-	Host              host                         `json:"host"`
-	Buzzed            []buzzed                     `json:"buzzed"`
-	Settings          settings                     `json:"settings"`
-	Teams             []team                       `json:"teams"`
-	Title             bool                         `json:"title"`
-	TitleText         string                       `json:"title_text"`
-	PointTracker      []int                        `json:"point_tracker"`
-	IsFinalRound      bool                         `json:"is_final_round"`
-	IsFinalSecond     bool                         `json:"is_final_second"`
-	HideFirstRound    bool                         `json:"hide_first_round"`
-	Round             int                          `json:"round"`
-	Rounds            []round                      `json:"rounds"`
-	FinalRound        []finalRound                 `json:"final_round"`
-	FinalRound2       []finalRound                 `json:"final_round_2"`	
-	FinalRoundStartingTeam int                     `json:"final_round_starting_team"`	
-	FinalRoundTimers  []int                        `json:"final_round_timers"`
-	Tick              int64                        `json:"tick"`
-	RoundStartTime    int64                        `json:"round_start_time"`
+	Room                    string                       `json:"room"`
+	RegisteredPlayers       map[string]*registeredPlayer `json:"registeredPlayers"`
+	Host                    host                         `json:"host"`
+	Buzzed                  []buzzed                     `json:"buzzed"`
+	Settings                settings                     `json:"settings"`
+	Teams                   []team                       `json:"teams"`
+	Page                    int                          `json:"page"`
+	TitleText               string                       `json:"title_text"`
+	PointTracker            []int                        `json:"point_tracker"`
+	IsFinalRound            bool                         `json:"is_final_round"`
+	IsFinalSecond           bool                         `json:"is_final_second"`
+	HideFirstRound          bool                         `json:"hide_first_round"`
+	Round                   int                          `json:"round"`
+	Rounds                  []round                      `json:"rounds"`
+	FinalRound              []finalRound                 `json:"final_round"`
+	FinalRound2             []finalRound                 `json:"final_round_2"`
+	FinalRoundStartingTeam  int                          `json:"final_round_starting_team"`
+	FinalRoundTotalsApplied []bool                       `json:"final_round_totals_applied"`
+	FinalRoundEndingPhase   int                          `json:"final_round_ending_phase"`
+	FinalRoundTimers        []int                        `json:"final_round_timers"`
+	Tick                    int64                        `json:"tick"`
+	RoundStartTime          int64                        `json:"round_start_time"`
 }
 
 func setTick(client *Client, event *Event) GameError {
@@ -128,15 +130,17 @@ func NewGame(roomCode string) room {
 					Mistakes: 0,
 				},
 			},
-			Title:          true,
-			TitleText:      "",
-			PointTracker:   []int{},
-			IsFinalRound:   false,
-			IsFinalSecond:  false,
-			HideFirstRound: false,
-			Round:          0,
-			Tick:           time.Now().UTC().UnixMilli(),
-			RoundStartTime: time.Now().UTC().UnixMilli(),
+			Page:                    0,
+			TitleText:               "",
+			PointTracker:            []int{},
+			IsFinalRound:            false,
+			IsFinalSecond:           false,
+			HideFirstRound:          false,
+			FinalRoundTotalsApplied: []bool{false, false},
+			FinalRoundEndingPhase:   0,
+			Round:                   0,
+			Tick:                    time.Now().UTC().UnixMilli(),
+			RoundStartTime:          time.Now().UTC().UnixMilli(),
 		},
 		cleanup: make(chan struct{}),
 	}

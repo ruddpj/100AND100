@@ -5,7 +5,7 @@ import TitleMusic from "@/components/Admin/GameDisplay/TitleMusic";
 import HideGameQuestions from "@/components/Admin/HideGameQuestions";
 import Players from "@/components/Admin/Players";
 import BuzzerTable from "@/components/BuzzerTable";
-import { Game, WSEvent } from "@/src/types/game";
+import { Game, GameShownPage, getGameShownPageLabel, WSEvent } from "@/src/types/game";
 import Image from "next/image";
 import { Dispatch, RefObject, SetStateAction } from "react";
 import { useTranslation } from "react-i18next";
@@ -51,8 +51,8 @@ export default function GameDisplay({
   }
 
   let current_screen;
-  if (game.title) {
-    current_screen = t("title");
+  if (game.page != GameShownPage.GAME) {
+    current_screen = t(getGameShownPageLabel(game.page))
   } else if (!game.is_final_round) {
     current_screen = `${t("round")} ${t("number", {
       count: game.round + 1,
@@ -102,87 +102,41 @@ export default function GameDisplay({
           </select>
         </div>
 
-        <div className="flex grow flex-row space-x-10">
+        <div className="flex grow items-center flex-row space-x-2">
           {/* TITLE SCREEN BUTTON */}
-          <button
-            id="titleCardButton"
-            className="grow rounded border-4 bg-secondary-300 p-10 text-2xl text-foreground"
-            onClick={() => {
-              game.title = true;
-              game.round = 0;
-              game.is_final_round = false;
-              game.is_final_second = false;
-              // @ts-expect-error: need a better way to update these values
-              setGame((prv) => ({ ...prv }));
-              send({ action: "data", data: game });
-            }}
-          >
-            {t("Title Card")}
-          </button>
 
-          <HideGameQuestions game={game} setGame={setGame} send={send} />
-
-          {/* FINAL ROUND BUTTON */}
-          {game.final_round ? (
-            <button
-              id="finalRoundButton"
-              className="grow rounded border-4 bg-secondary-300 p-10 text-2xl text-foreground"
-              onClick={() => {
-                game.title = false;
-                game.is_final_round = true;
-                game.is_final_second = false;
-                // @ts-expect-error: need a better way to update these values
-                setGame((prv) => ({ ...prv }));
-                send({ action: "data", data: game });
-                send({
-                  action: "set_timer",
-                  data: game.final_round_timers[0],
-                });
-              }}
-            >
-              {t("Final Round")}
-            </button>
-          ) : null}
-
-          {/* ROUND SELECTOR */}
-          <select
-            className="grow rounded border-4 bg-secondary-300 p-10 text-2xl text-foreground"
-            id="roundSelector"
-            value={game.round}
-            onChange={(e) => {
-              game.round = parseInt(e.target.value);
-              game.is_final_round = false;
-              game.is_final_second = false;
-              game.teams[0].mistakes = 0;
-              game.teams[1].mistakes = 0;
-              game.title = false;
-              if (game.settings.hide_questions_on_round_begin == true) {
-                  game.settings.hide_questions = true;
-              }
-              // @ts-expect-error: need a better way to update these values
-              setGame((prv) => ({ ...prv }));
-              setPointsGiven({
-                state: false,
-                color: "bg-success-500",
-                textColor: "text-foreground",
-              });
-              send({ action: "data", data: game });
-            }}
-          >
-            {game.rounds.map((key, index) => (
-              <option value={index} key={`round-select-${index}`}>
-                {t("round")} {t("number", { count: index + 1 })}
-              </option>
-            ))}
-          </select>
+          <p id="finalRoundStartingTeamLabel" className="text-xl text-foreground">
+            {t("Current Screen")}:
+          </p>
+          {[GameShownPage.GAME, GameShownPage.TITLE, GameShownPage.QR_CODE, GameShownPage.SCORES].map((v) => {
+            const bg = (v == game.page ? "bg-secondary-500" : "bg-secondary-300")
+            return (
+              <button
+                key={"button"+v}
+                className={`grow rounded border-4 ${bg} p-5 text-2xl text-foreground`}
+                onClick={() => {
+                  game.page = v
+                  game.round = 0;
+                  game.is_final_round = false;
+                  game.is_final_second = false;
+                  // @ts-expect-error: need a better way to update these values
+                  setGame((prv) => ({ ...prv }));
+                  send({ action: "data", data: game });
+                }}
+              >
+                {getGameShownPageLabel(v)}
+              </button>
+            );
+          })}
         </div>
-        {/* START ROUND 1 BUTTON */}
-        <div className="flex flex-row space-x-10">
+
+        <div className="flex grow items-center flex-row space-x-2">
+          {/* START ROUND 1 BUTTON */}
           <button
             id="startRoundOneButton"
             className="grow rounded border-4 bg-secondary-300 p-10 text-2xl text-foreground"
             onClick={() => {
-              game.title = false;
+              game.page = GameShownPage.GAME;
               game.is_final_round = false;
               game.is_final_second = false;
               game.round = 0;
@@ -209,7 +163,7 @@ export default function GameDisplay({
             className="grow rounded border-4 bg-secondary-300 p-10 text-2xl text-foreground"
             id="nextRoundButton"
             onClick={() => {
-              game.title = false;
+              game.page = GameShownPage.GAME;
               game.is_final_round = false;
               game.is_final_second = false;
               game.teams[0].mistakes = 0;
@@ -233,14 +187,72 @@ export default function GameDisplay({
           >
             {t("Next Round")}
           </button>
+          {/* FINAL ROUND BUTTON */}
+          {game.final_round ? (
+            <button
+              id="finalRoundButton"
+              className="grow rounded border-4 bg-secondary-300 p-10 text-2xl text-foreground"
+              onClick={() => {
+                game.page = GameShownPage.GAME;
+                game.is_final_round = true;
+                game.is_final_second = false;
+                game.hide_first_round = false;
+                // @ts-expect-error: need a better way to update these values
+                setGame((prv) => ({ ...prv }));
+                send({ action: "data", data: game });
+                send({
+                  action: "set_timer",
+                  data: game.final_round_timers[0],
+                });
+              }}
+            >
+              {t("Final Round")}
+            </button>
+          ) : null}
+
+          {/* ROUND SELECTOR */}
+          <select
+            className="grow rounded border-4 bg-secondary-300 p-10 text-2xl text-foreground"
+            id="roundSelector"
+            value={game.round}
+            onChange={(e) => {
+              game.round = parseInt(e.target.value);
+              game.is_final_round = false;
+              game.is_final_second = false;
+              game.teams[0].mistakes = 0;
+              game.teams[1].mistakes = 0;
+              game.page = GameShownPage.GAME;
+              if (game.settings.hide_questions_on_round_begin == true) {
+                  game.settings.hide_questions = true;
+              }
+              // @ts-expect-error: need a better way to update these values
+              setGame((prv) => ({ ...prv }));
+              setPointsGiven({
+                state: false,
+                color: "bg-success-500",
+                textColor: "text-foreground",
+              });
+              send({ action: "data", data: game });
+            }}
+          >
+            {game.rounds.map((key, index) => (
+              <option value={index} key={`round-select-${index}`}>
+                {t("round")} {t("number", { count: index + 1 })}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="flex grow items-center flex-row space-x-2">
+          <HideGameQuestions game={game} setGame={setGame} send={send} />
           <button
             id="showMistakeButton"
-            className="flex grow flex-row items-center justify-center rounded border-4 bg-secondary-300 p-10 text-2xl text-foreground"
+            className="flex grow flex-row items-center justify-center rounded border-4 bg-secondary-300 p-3 text-2xl text-foreground"
             onClick={() => {
               send({ action: "show_mistake" });
             }}
           >
-            <Image width={150} height={150} style={{ objectFit: "contain" }} src="/x.svg" alt="Show Mistake" />
+            <Image width={70} height={70} style={{ objectFit: "contain" }} src="/x.svg" alt="Show Mistake" />
           </button>
           <button
             id="resetMistakesButton"

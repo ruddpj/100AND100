@@ -145,6 +145,24 @@ export interface GameTheme {
   settings: SettingsTheme;
 }
 
+export enum GameShownPage {
+    GAME=0,
+    TITLE,
+    QR_CODE,
+    SCORES
+}
+
+const GameShownPageLabel: Record<GameShownPage, string> = {
+  [GameShownPage.GAME]: "game",
+  [GameShownPage.TITLE]: "title",
+  [GameShownPage.QR_CODE]: "qr",
+  [GameShownPage.SCORES]: "scores"
+}
+
+export function getGameShownPageLabel(s: GameShownPage | number) {
+  return GameShownPageLabel[s as GameShownPage] ?? `Unknown: ${s}`;
+}
+
 export interface Game {
   // Core properties
   room: string;
@@ -157,7 +175,7 @@ export interface Game {
   teams: Team[];
 
   // Game state
-  title: boolean;
+  page: GameShownPage
   title_text: string;
   point_tracker: number[];
 

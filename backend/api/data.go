@@ -7,7 +7,7 @@ import (
 )
 
 func mergeGame(game *game, newData *game) {
-	game.Round = newData.Round 
+	game.Round = newData.Round
 	game.Rounds = newData.Rounds
 	game.FinalRound = newData.FinalRound
 	game.FinalRound2 = newData.FinalRound2
@@ -15,10 +15,12 @@ func mergeGame(game *game, newData *game) {
 	game.IsFinalRound = newData.IsFinalRound
 	game.IsFinalSecond = newData.IsFinalSecond
 	game.FinalRoundStartingTeam = newData.FinalRoundStartingTeam
+	game.FinalRoundTotalsApplied = newData.FinalRoundTotalsApplied
+	game.FinalRoundEndingPhase = newData.FinalRoundEndingPhase
 	game.PointTracker = newData.PointTracker
 	game.Settings = newData.Settings
 	game.Teams = newData.Teams
-	game.Title = newData.Title
+	game.Page = newData.Page
 	game.TitleText = newData.TitleText
 	game.RegisteredPlayers = newData.RegisteredPlayers
 }
@@ -30,7 +32,7 @@ func NewData(client *Client, event *Event) GameError {
 		return storeError
 	}
 	copyRound := room.Game.Round
-	copyTitle := room.Game.Title
+	copyPage := room.Game.Page
 	newData := game{}
 	rawData, err := json.Marshal(event.Data)
 	if err != nil {
@@ -43,7 +45,7 @@ func NewData(client *Client, event *Event) GameError {
 	mergeGame(room.Game, &newData)
 	setTick(client, event)
 
-	if copyRound != newData.Round || copyTitle != newData.Title {
+	if copyRound != newData.Round || copyPage != newData.Page {
 		room.Game.Buzzed = []buzzed{}
 		room.Game.RoundStartTime = time.Now().UTC().UnixMilli()
 		message, err := NewSendClearBuzzers()

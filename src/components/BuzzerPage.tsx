@@ -159,7 +159,7 @@ export default function BuzzerPage({ ws, game, id, setGame, room, setTeam, team 
         </button>
         {id in game.registeredPlayers && game.registeredPlayers[id].team !== null ? (
           <>
-            {!game.title && !game.is_final_round ? (
+            {game.page != 0 && !game.is_final_round ? (
               <div className="flex flex-col space-y-5">
                 <ScaleToFit>
                   <div className="flex flex-col items-center gap-3">

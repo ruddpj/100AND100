@@ -6,8 +6,10 @@ import ScaleToFit from "@/components/ScaleToFit";
 import StrikeOverlay from "@/components/StrikeOverlay";
 import TeamName from "@/components/TeamName";
 import TitlePage from "@/components/Title/TitlePage";
+import QRPage from "../components/QRPage";
+import ScoresPage from "../components/ScoresPage";
 import { ERROR_CODES } from "@/i18n/errorCodes";
-import { BuzzedState, Game, WSAction, WSEvent } from "@/types/game";
+import { BuzzedState, Game, GameShownPage, WSAction, WSEvent } from "@/types/game";
 // @ts-expect-error: not sure if cookie-cutter is typed
 import cookieCutter from "cookie-cutter";
 import { useEffect, useRef, useState } from "react";
@@ -313,8 +315,12 @@ export default function GamePage() {
     const activeTheme = game?.settings?.theme ?? "default";
 
     let gameSession;
-    if (game.title) {
+    if (game.page == GameShownPage.TITLE) {
       gameSession = <TitlePage game={game} />;
+    } else if (game.page == GameShownPage.QR_CODE) {
+      gameSession = <QRPage game={game} />;
+    } else if (game.page == GameShownPage.SCORES) {
+      gameSession = <ScoresPage game={game} />;
     } else if (game.is_final_round) {
       gameSession = (
         <div className="flex w-full justify-center">

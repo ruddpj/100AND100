@@ -1,7 +1,7 @@
 import RoomCode from "@/components/Title/RoomCode";
 import Team from "@/components/Title/Team";
 import TitleLogo from "@/components/TitleLogo";
-import { Game } from "@/types/game";
+import { Game } from "@/src/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
