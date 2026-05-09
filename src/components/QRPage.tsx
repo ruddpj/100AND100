@@ -7,8 +7,6 @@ interface QRPageProps {
 }
 
 export default function QRPage({ game }: QRPageProps) {
-console.log("he")
-console.log(game.settings.qr_code_url)
   const [titleSize, setTitleSize] = useState(10);
 
   useEffect(() => {
