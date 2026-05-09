@@ -132,7 +132,7 @@ func NewGame(roomCode string) room {
 					Mistakes: 0,
 				},
 			},
-			Page:                    0,
+			Page:                    1,
 			TitleText:               "",
 			PointTracker:            []int{},
 			IsFinalRound:            false,
