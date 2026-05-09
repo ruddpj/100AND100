@@ -11,12 +11,12 @@ import (
 
 const MaxFileSize = 2098
 
-func VerifyLogo(logo []byte) error {
-	fileSize := math.Round(float64(len(logo) / 1024))
+func VerifyImage(img []byte) error {
+	fileSize := math.Round(float64(len(img) / 1024))
 	if fileSize > MaxFileSize {
 		return fmt.Errorf("image too large")
 	}
-	mimeType := http.DetectContentType(logo)
+	mimeType := http.DetectContentType(img)
 	acceptedMimeTypes := []string{"image/png", "image/gif", "image/jpeg"}
 
 	if !slices.Contains(acceptedMimeTypes, mimeType) {

@@ -55,7 +55,7 @@ func (m *MemoryStore) deleteRoom(roomCode string) GameError {
 
 func (m *MemoryStore) saveLogo(roomCode string, logo []byte) GameError {
 	dirPath := filepath.Join(".", "public", "rooms", roomCode)
-	err := VerifyLogo(logo)
+	err := VerifyImage(logo)
 	if err != nil {
 		return GameError{code: SERVER_ERROR, message: fmt.Sprint(err)}
 	}
@@ -103,4 +103,41 @@ func (m *MemoryStore) isHealthy() error {
 		return fmt.Errorf("memory store is not initialized")
 	}
 	return nil
+}
+
+func (m *MemoryStore) saveQRCode(roomCode string, qrCode []byte) GameError {
+	dirPath := filepath.Join(".", "public", "rooms", roomCode)
+	err := VerifyImage(qrCode)
+	if err != nil {
+		return GameError{code: SERVER_ERROR, message: fmt.Sprint(err)}
+	}
+	err = os.MkdirAll(dirPath, os.ModePerm)
+	if err != nil {
+		return GameError{code: SERVER_ERROR, message: fmt.Sprint(err)}
+	}
+
+	err = os.WriteFile(filepath.Join(dirPath, "qrcode"), qrCode, 0o644)
+	if err != nil {
+		return GameError{code: SERVER_ERROR, message: fmt.Sprint(err)}
+	}
+	return GameError{}
+}
+
+func (m *MemoryStore) loadQRCode(roomCode string) ([]byte, GameError) {
+	log.Println("Trying to read qr-code from", "./public/rooms/", roomCode, "qrcode")
+	filePath := filepath.Join(".", "public", "rooms", roomCode, "qrcode")
+	data, err := os.ReadFile(filePath)
+	if err != nil {
+		return nil, GameError{code: SERVER_ERROR, message: "qr code not found"}
+	}
+	return data, GameError{}
+}
+
+func (m *MemoryStore) deleteQRCode(roomCode string) GameError {
+	filePath := filepath.Join(".", "public", "rooms", roomCode, "qrcode")
+	err := os.Remove(filePath)
+	if err != nil {
+		return GameError{code: SERVER_ERROR, message: fmt.Sprint(err)}
+	}
+	return GameError{}
 }

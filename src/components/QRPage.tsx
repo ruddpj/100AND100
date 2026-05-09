@@ -7,6 +7,8 @@ interface QRPageProps {
 }
 
 export default function QRPage({ game }: QRPageProps) {
+console.log("he")
+console.log(game.settings.qr_code_url)
   const [titleSize, setTitleSize] = useState(10);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export default function QRPage({ game }: QRPageProps) {
 
   return (
     <div className="min-w-screen flex min-h-screen flex-col items-center justify-center bg-gradient-to-t from-primary-900 via-primary-200 to-primary-900 py-5">
-      {/* Image Section */}
+      {/* QR Code Section */}
       <div
         style={{
           width: `${titleSize}%`,
@@ -39,7 +41,20 @@ export default function QRPage({ game }: QRPageProps) {
         className="inline-block align-middle"
       >
         <div className="flex w-full justify-center">
-          <h1>No QR-code Provided</h1>
+          {game.settings.qr_code_url ? (
+            <div className="relative w-full aspect-square max-w-[500px]">
+              <Image
+                fill
+                style={{ objectFit: "contain" }}
+                src={`${game.settings.qr_code_url}?v=${Date.now()}`}
+                alt="QR Code"
+                priority
+                unoptimized
+              />
+            </div>
+          ) : (
+            <h1 className="text-4xl font-bold text-foreground">No QR-code Provided</h1>
+          )}
         </div>
       </div>
     </div>

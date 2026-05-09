@@ -42,6 +42,8 @@ export const WSAction = {
   LOAD_GAME: "load_game",
   LOGO_UPLOAD: "logo_upload",
   DEL_LOGO_UPLOAD: "del_logo_upload",
+  QR_CODE_UPLOAD: "qr_code_upload",
+  DEL_QR_CODE_UPLOAD: "del_qr_code_upload",
   PONG: "pong",
   BUZZ: "buzz",
   REGISTER_BUZZ: "registerbuzz",
@@ -95,6 +97,7 @@ export interface BuzzedState {
 
 export interface Settings {
   logo_url: string | null;
+  qr_code_url: string | null;
   hide_questions: boolean;
   theme: string;
   final_round_title: string | null;

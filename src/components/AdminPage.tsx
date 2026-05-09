@@ -33,6 +33,7 @@ export default function AdminPage({ ws, game, setGame, room, quitGame, playerId 
   });
   const [gameSelector, setGameSelector] = useState<string[]>([]);
   const [imageUploaded, setImageUploaded] = useState<File | null>(null);
+  const [qrUploaded, setQRUploaded] = useState<File | null>(null);
   const [timerStarted, setTimerStarted] = useState(false);
   const [timerCompleted, setTimerCompleted] = useState(false);
   const [titleMusicPlaying, setTitleMusicPlaying] = useState(false);
@@ -130,6 +131,8 @@ export default function AdminPage({ ws, game, setGame, room, quitGame, playerId 
         setGame={setGame}
         setImageUploaded={setImageUploaded}
         imageUploaded={imageUploaded}
+        setQRUploaded={setQRUploaded}
+        qrUploaded={qrUploaded}
       />
       <hr className="my-12" />
       {/* ADMIN CONTROLS */}

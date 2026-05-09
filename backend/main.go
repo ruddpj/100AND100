@@ -81,6 +81,11 @@ func main() {
 		roomCode := httpRequest.PathValue("roomCode")
 		api.FetchLogo(httpWriter, roomCode)
 	})
+
+	http.HandleFunc("/api/rooms/{roomCode}/qrcode", func(httpWriter http.ResponseWriter, httpRequest *http.Request) {
+		roomCode := httpRequest.PathValue("roomCode")
+		api.FetchQRCode(httpWriter, roomCode)
+	})
 	log.Printf("Server listening on %s", cfg.addr)
 	err = http.ListenAndServe(cfg.addr, nil)
 	if err != nil {

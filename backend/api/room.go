@@ -99,6 +99,7 @@ func (r *room) gameTimeout() error {
 				}
 				r.Hub.broadcast <- message
 				store.deleteLogo(r.Game.Room)
+				store.deleteQRCode(r.Game.Room)
 				store.deleteRoom(r.Game.Room)
 				return nil
 			}

@@ -24,6 +24,12 @@ type gameStore interface {
 	loadLogo(string) ([]byte, GameError)
 	// Delete a logo image from room
 	deleteLogo(string) GameError
+	// Save an qr-code file for the game logo
+	saveQRCode(string, []byte) GameError
+	// Load a qr-code image from room
+	loadQRCode(string) ([]byte, GameError)
+	// Delete a qr-code image from room
+	deleteQRCode(string) GameError
 	// Health check
 	isHealthy() error
 }

@@ -46,6 +46,8 @@ var recieveActions = map[string]ActionFunc{
 var hostRecieveActions = map[string]ActionFunc{
 	"del_logo_upload":        DeleteLogoUpload,
 	"logo_upload":            LogoUpload,
+	"del_qr_code_upload":     DeleteQRCodeUpload,
+	"qr_code_upload":         QRCodeUpload,
 	"register_buzzer_screen": RegisterBuzzerScreen,
 	"buzzer_screen_buzz":     BuzzerScreenBuzz,
 	"load_game":              LoadGame,

@@ -1,3 +1,4 @@
+import QRCodeUpload from "@/components/Admin/QRCodeUpload";
 import TitleLogoUpload from "@/components/Admin/TitleLogoUpload";
 import { debounce } from "@/lib/utils";
 import { Game, WSEvent } from "@/types/game";
@@ -11,6 +12,8 @@ interface TitlesAndLogoSettingsProps {
   setGame: Dispatch<SetStateAction<Game | null>>;
   setImageUploaded: Dispatch<SetStateAction<File | null>>;
   imageUploaded: File | null;
+  setQRUploaded: Dispatch<SetStateAction<File | null>>;
+  qrUploaded: File | null;
 }
 
 export default function TitlesAndLogoSettings({
@@ -20,6 +23,8 @@ export default function TitlesAndLogoSettings({
   setGame,
   setImageUploaded,
   imageUploaded,
+  setQRUploaded,
+  qrUploaded,
 }: TitlesAndLogoSettingsProps) {
   const { t } = useTranslation();
   return (
@@ -63,6 +68,15 @@ export default function TitlesAndLogoSettings({
           setImageUploaded={setImageUploaded}
           imageUploaded={imageUploaded}
         />
+        <QRCodeUpload
+          send={send}
+          room={room}
+          setGame={setGame}
+          game={game}
+          setQRUploaded={setQRUploaded}
+          qrUploaded={qrUploaded}
+        />
+
         <div className="w-80 flex-row items-center space-x-1">
           {/* TEAM 1 NAME CHANGER */}
           <input

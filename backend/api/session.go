@@ -79,6 +79,7 @@ func quitHost(room *room, event *Event) GameError {
 	// Remove room
 	s.deleteRoom(event.Room)
 	s.deleteLogo(event.Room)
+	s.deleteQRCode(event.Room)
 	return GameError{}
 }
 

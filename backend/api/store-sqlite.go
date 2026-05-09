@@ -27,6 +27,7 @@ type Room struct {
 	HostPassword string
 	RoomJson datatypes.JSON
 	RoomIcon []byte
+	RoomQRCode []byte
 }
 
 func NewSQLiteStore() (*SQLiteStore, GameError) {
@@ -171,4 +172,24 @@ func (s *SQLiteStore) isHealthy() error {
 	}
 	
 	return nil
+}
+
+func (s *SQLiteStore) saveQRCode(roomCode string, qrCode []byte) GameError {
+	s.db.Model(&Room{}).Where("room_code = ?", roomCode).Update("room_qr_code", qrCode)
+	return GameError{}
+}
+
+func (s *SQLiteStore) loadQRCode(roomCode string) ([]byte, GameError) {
+	var foundRoomDB Room
+
+	if err := s.db.Where("room_code = ?", roomCode).First(&foundRoomDB).Error; errors.Is(err, gorm.ErrRecordNotFound) {
+		return nil, GameError{code: SERVER_ERROR, message: "qr code not found"}
+	}
+
+	return foundRoomDB.RoomQRCode, GameError{}
+}
+
+func (s *SQLiteStore) deleteQRCode(roomCode string) GameError {
+	s.db.Model(&Room{}).Where("room_code = ?", roomCode).Update("room_qr_code", nil)
+	return GameError{}
 }
