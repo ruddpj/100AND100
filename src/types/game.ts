@@ -156,10 +156,10 @@ export enum GameShownPage {
 }
 
 const GameShownPageLabel: Record<GameShownPage, string> = {
-  [GameShownPage.GAME]: "game",
-  [GameShownPage.TITLE]: "title",
-  [GameShownPage.QR_CODE]: "qr",
-  [GameShownPage.SCORES]: "scores"
+  [GameShownPage.GAME]: "GAME",
+  [GameShownPage.TITLE]: "TITLE",
+  [GameShownPage.QR_CODE]: "QR",
+  [GameShownPage.SCORES]: "SCORES"
 }
 
 export function getGameShownPageLabel(s: GameShownPage | number) {

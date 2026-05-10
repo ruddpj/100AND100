@@ -94,9 +94,6 @@ export default function GameDisplay({
                 className={`grow rounded border-4 ${bg} p-5 text-2xl text-foreground`}
                 onClick={() => {
                   game.page = v
-                  game.round = 0;
-                  game.is_final_round = false;
-                  game.is_final_second = false;
                   // @ts-expect-error: need a better way to update these values
                   setGame((prv) => ({ ...prv }));
                   send({ action: "data", data: game });
