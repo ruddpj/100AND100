@@ -2,6 +2,8 @@ import { useTranslation } from "react-i18next";
 import "@/i18n/i18n";
 import { FinalRound, Game } from "@/types/game";
 import FitText from "@/components/FitText";
+import { warn } from "console";
+import TeamName from "./TeamName";
 
 const TEXT_SHADOW = "3px 3px 0 black";
 
@@ -60,15 +62,17 @@ interface FinalPageProps {
 
 export default function FinalPage({ game, timer }: FinalPageProps) {
   const { t } = useTranslation();
-  const roundOnePoints = game.final_round.reduce((sum, round) => sum + round.points, 0);
-  const roundTwoPoints = game.final_round_2.reduce((sum, round) => sum + round.points, 0);
-  const startingTeam = game.final_round_starting_team ?? 0;
-  const roundOneTotal = game.teams[startingTeam]?.points;
-  const roundTwoTotal = game.teams[1 - startingTeam]?.points;
-  const currentTeamIndex = game.is_final_second ? 1 - startingTeam : startingTeam;
-  const currentTeamTotal = game.teams[currentTeamIndex]?.points;
+
   const showFirstRound = !game.hide_first_round;
   const showSecondRound = game.is_final_second;
+
+  const teamOneIndex = game.final_round_starting_team;
+  const teamTwoIndex = 1 - teamOneIndex
+  const currentTeamIndex = showSecondRound ? teamTwoIndex : teamOneIndex;
+
+  const roundOnePoints = game.final_round.reduce((sum, round) => sum + round.points, 0);
+  const roundTwoPoints = game.final_round_2.reduce((sum, round) => sum + round.points, 0);
+  const roundCurrentPoints = showSecondRound ? roundTwoPoints : roundOnePoints;
 
   return (
     <div className="font-oswald flex w-full flex-col items-center gap-5">
@@ -81,30 +85,50 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
         </p>
       </div>
 
-      <div className="w-full max-w-[1060px] rounded-2xl border-8 border-white bg-black p-4">
+      <div className="w-full max-w-[1060px]">
         <div className={`grid gap-3 ${showFirstRound && showSecondRound ? "lg:grid-cols-2" : ""}`}>
           {showFirstRound && (
             <div className="grid min-w-0 gap-3 lg:grid-flow-row">
-              <Answers finalRoundNumber={1} round={game.final_round} />
+              <TeamName team={teamOneIndex} game={game}/>
             </div>
           )}
 
           {showSecondRound && (
             <div className="grid min-w-0 gap-3 lg:grid-flow-row">
+              <TeamName team={teamTwoIndex} game={game}/>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="w-full max-w-[1060px] rounded-2xl border-8 border-white bg-black p-4">
+        <div className={`grid gap-3 ${showFirstRound && showSecondRound ? "lg:grid-cols-2" : ""}`}>
+          {showFirstRound && (
+            <div className="grid min-w-0 gap-3 lg:grid-flow-row">
+              <Answers finalRoundNumber={1} round={game.final_round} />
+              <hr />
+            </div>
+          )}
+
+
+          {showSecondRound && (
+            <div className="grid min-w-0 gap-3 lg:grid-flow-row">
               <Answers finalRoundNumber={2} round={game.final_round_2} />
+              <hr />
             </div>
           )}
         </div>
       </div>
 
       <div className="relative my-3 h-16 w-full max-w-[1060px]">
-        {showFirstRound && showSecondRound && (
+        {/* Total (left) */}
+        {/* showFirstRound && showSecondRound && (
           <div className="absolute left-0 top-1/2 w-fit -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
             <p id="finalRoundFirstTeamTotalText" className="text-4xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
-              {t("total")} {t("number", { count: game.teams[startingTeam]?.points })}
+              {t("total")} {t("number", { count: roundOnePoints })}
             </p>
           </div>
-        )}
+        )*/}
         {/* Timer */}
         <div className="absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
           <p id="finalRoundTimerLabel" className="text-4xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
@@ -112,17 +136,17 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
           </p>
         </div>
 
-        {/* Total */}
-        <div className="absolute right-0 top-1/2 w-fit -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
+        {/* Total (right) */}
+        {/*<div className="absolute right-0 top-1/2 w-fit -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
           <p id="finalRoundTotalPointsText" className="text-4xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
-            {t("total")} {t("number", { count: currentTeamTotal })}
+            {t("total")} {t("number", { count: roundCurrentPoints })}
           </p>
-        </div>
+        </div>*/}
       </div>
 
       {/* WIN TEXT */}
       <div className="text-center">
-        {currentTeamTotal >= 9999 ? (
+        {roundCurrentPoints >= 9999 ? (
           <p
             id="finalRoundWinText"
             className="text-7xl font-bold uppercase leading-none text-foreground"

@@ -192,7 +192,7 @@ export interface Game {
   hide_first_round: boolean;
   final_round: FinalRound[];
   final_round_2: FinalRound[];
-  final_round_starting_team?: number;
+  final_round_starting_team: number;
   final_round_timers: number[];
 
   // Timing properties

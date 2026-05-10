@@ -34,7 +34,7 @@ export default function ScoresPage({ game }: ScorePageProps) {
   }, []);
 
   const { t } = useTranslation();
-  const startingTeam = game.final_round_starting_team ?? 0;
+  const startingTeam = game.final_round_starting_team;
   const firstTeamIndex = startingTeam;
   const secondTeamIndex = 1 - startingTeam;
   const firstTeam = game.teams[firstTeamIndex];

@@ -79,28 +79,6 @@ export default function GameDisplay({
             {t("Current Screen")}: {current_screen}
           </p>
         </div>
-        <div className="flex flex-row items-center justify-evenly space-x-5">
-          <p id="finalRoundStartingTeamLabel" className="text-xl text-foreground">
-            {t("First team")}:
-          </p>
-          <select
-            id="finalRoundStartingTeamSelector"
-            className="grow rounded border-4 bg-secondary-300 p-4 text-2xl text-foreground"
-            value={game.final_round_starting_team ?? 0}
-            onChange={(e) => {
-              game.final_round_starting_team = parseInt(e.target.value, 10);
-              // @ts-expect-error: need a better way to update these values
-              setGame((prv) => ({ ...prv }));
-              send({ action: "data", data: game });
-            }}
-          >
-            {game.teams.map((team, index) => (
-              <option key={`starting-team-${index}`} value={index}>
-                {team.name || `${t("Team")} ${index + 1}`}
-              </option>
-            ))}
-          </select>
-        </div>
 
         <div className="flex grow items-center flex-row space-x-2">
           {/* TITLE SCREEN BUTTON */}
@@ -434,6 +412,29 @@ export default function GameDisplay({
             </h2>
             <hr />
             <div className="flex flex-row items-center justify-evenly space-x-5 py-5">
+              {/* FIRST TEAM SELECTOR */}
+              <div className="flex flex-row items-center justify-evenly space-x-5">
+                <p id="finalroundstartingteamlabel" className="text-xl text-foreground">
+                  {t("first team")}:
+                </p>
+                <select
+                  id="finalRoundStartingTeamSelector"
+                  className="grow rounded border-4 bg-secondary-300 p-4 text-2xl text-foreground"
+                  value={game.final_round_starting_team}
+                  onChange={(e) => {
+                    game.final_round_starting_team = parseInt(e.target.value, 10);
+                    // @ts-expect-error: need a better way to update these values
+                    setGame((prv) => ({ ...prv }));
+                    send({ action: "data", data: game });
+                  }}
+                >
+                  {game.teams.map((team, index) => (
+                    <option key={`starting-team-${index}`} value={index}>
+                      {team.name || `${t("Team")} ${index + 1}`}
+                    </option>
+                  ))}
+                </select>
+              </div>
               {/* START FINAL ROUND 2 */}
               {!game.is_final_second ? (
                 <button

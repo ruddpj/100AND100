@@ -179,7 +179,7 @@ export default function FinalRoundButtonControls({ game, send, setGame }: FinalR
               const xPoints = selectedAnswer ? Number(selectedAnswer[1]) || 0 : 0;
 
               // Determine which team gets the points based on the selected starting team.
-              const startingTeam = prevGame.final_round_starting_team ?? 0;
+              const startingTeam = prevGame.final_round_starting_team;
               const teamIndex = prevGame.is_final_second ? 1 - startingTeam : startingTeam;
 
               // Only award points if this is the first time (going from 0 to positive points)
