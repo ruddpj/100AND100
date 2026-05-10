@@ -1,5 +1,9 @@
 # FEIstival: 100v100 / 4v4
 
+Readme je rozdelene na sekcie poldla veci pripravovanych pre 4v4.
+
+## Friendly Feud SW
+
 Toto sú inštrukcie, v ktorom by sa mala nastaviť hra.
 (Ja viem, že si všetko pamätáš).
 
@@ -34,8 +38,6 @@ make stop
 5. Nahrať qr
 6. Zmeniť názvy tímov
 7. Otvoriť herné okno.
-8.
-
 
 ---
 ### Pre dev:
@@ -47,7 +49,7 @@ hot reload pre zmeny frontend/backend.
 - [x] json otazok
 - [x] json themes
 - [x] json preklady
-    - [ ] final screen replace 'fast money'->'finale'
+    - [x] final screen replace 'fast money'->'finale'
 - [x] logo
 - [ ] hudba sfx medzi roundmi (review)
 - [x] final round body rozne
@@ -57,9 +59,22 @@ hot reload pre zmeny frontend/backend.
 - [ ] timer in rounds (5s)
 - [ ] klasifikacia slido?
     - [x] qr screen
-    - [ ] try out slido
+    - [x] try out slido -> menti
 - [x] increase round question size
 - [ ] SPEAI logo - better position/size
 - [ ] round table bg, font shadows->outline
 
 - [x] try to have one-column table
+
+## Jolik pre FF
+
+### [mentimeter app](https://www.mentimeter.com/app/home)
+
+See it as a presentation app with real-time polling
+
+- QR Code sa da stiahnut cez tl.Share hore vlavo.
+- AI Grouping sa zapina od >10 odpovedi
+- Otazky su samotne slides. Aby menit otazky, **musi byt zapnuta prezentacia :/**
+- Max 50 ludi, ale da sa to 1. prekrocit, co asi zneuzijeme pre feistival. Inac
+  sa da kupit plan za 15eur, see [pricing](https://www.mentimeter.com/plans/education)
+- je treba predpripravit asi 10 open-ended slideov
