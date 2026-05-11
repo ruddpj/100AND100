@@ -60,6 +60,7 @@ export default function TitlesAndLogoSettings({
             ></input>
           </div>
         </div>
+        <div /> {/* TODO: placeholder for better alignment, can be replaced with sth useful */}
         <TitleLogoUpload
           send={send}
           room={room}
