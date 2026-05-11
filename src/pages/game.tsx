@@ -31,6 +31,7 @@ export default function GamePage() {
   const refreshCounterRef = useRef(0);
   const mistakeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const titleMusicRef = useRef<HTMLAudioElement | null>(null);
+  const titleShortMusicRef = useRef<HTMLAudioElement | null>(null);
 
   const getTitleMusic = () => {
     if (!titleMusicRef.current) {
@@ -40,6 +41,16 @@ export default function GamePage() {
     }
 
     return titleMusicRef.current;
+  };
+
+  const getTitleShortMusic = () => {
+    if (!titleShortMusicRef.current) {
+      const audio = new Audio("title-short.mp3");
+      audio.loop = true;
+      titleShortMusicRef.current = audio;
+    }
+
+    return titleShortMusicRef.current;
   };
 
   const notifyTitleMusicPlaybackError = () => {
@@ -53,6 +64,23 @@ export default function GamePage() {
     ws.current.send(
       JSON.stringify({
         action: WSAction.TITLE_MUSIC_PLAYBACK_ERROR,
+        room,
+        id,
+      })
+    );
+  };
+
+  const notifyTitleShortMusicPlaybackError = () => {
+    const session = cookieCutter.get("session");
+    const [room, id] = session?.split(":") ?? [];
+
+    if (!room || !id || ws.current?.readyState !== WebSocket.OPEN) {
+      return;
+    }
+
+    ws.current.send(
+      JSON.stringify({
+        action: WSAction.TITLE_SHORT_MUSIC_PLAYBACK_ERROR,
         room,
         id,
       })
@@ -207,8 +235,20 @@ export default function GamePage() {
       } else if (json.action === WSAction.PAUSE_TITLE_MUSIC) {
         const titleMusic = getTitleMusic();
         titleMusic.pause();
+      } else if (json.action === WSAction.PLAY_TITLE_SHORT_MUSIC) {
+        const titleShortMusic = getTitleShortMusic();
+        titleShortMusic.play().catch((error) => {
+          console.warn("Unable to play title short music:", error);
+          toast.error(t(ERROR_CODES.TITLE_MUSIC_PLAYBACK_ERROR));
+          notifyTitleShortMusicPlaybackError();
+        });
+      } else if (json.action === WSAction.PAUSE_TITLE_SHORT_MUSIC) {
+        const titleShortMusic = getTitleShortMusic();
+        titleShortMusic.pause();
       } else if (json.action === WSAction.TITLE_MUSIC_PLAYBACK_ERROR) {
         console.debug("Title music playback error reported");
+      } else if (json.action === WSAction.TITLE_SHORT_MUSIC_PLAYBACK_ERROR) {
+        console.debug("Title short music playback error reported");
       } else if (json.action === "set_timer") {
         setTimer(json.data);
       } else if (json.action === "stop_timer") {
