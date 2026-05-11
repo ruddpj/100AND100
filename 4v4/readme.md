@@ -61,7 +61,7 @@ hot reload pre zmeny frontend/backend.
 - [x] json preklady
     - [x] final screen replace 'fast money'->'finale'
 - [x] logo
-- [ ] hudba sfx medzi roundmi (review)
+- [x] hudba sfx medzi roundmi (review)
 - [x] final round body rozne
     - [x] count final round 1 and 2 per team (2 totals)
     - [x] body timov vo final
@@ -71,18 +71,16 @@ hot reload pre zmeny frontend/backend.
     - [x] qr screen
     - [x] try out slido -> menti
 - [x] increase round question size
-- [ ] SPEAI logo - better position/size
-- [ ] round table bg, font shadows->outline
+- [ ] SPEAI logo
 
 - [x] try to have one-column table
-- [ ] put team names in a row (separate div)
+- [x] put team names in a row (separate div)
 - [ ] ba-dum-tss sound effect
-- [ ] show current question along with qr (
-- [ ] make intro sound shorter max10s
-- [ ] fialove ot
-- [ ] opravit casovac - it just restarts on timeout
-- [ ] select right music for 2nd person in FInal round (music must not have
-  pauses, must be loud, fast+loud starts/endings, circa 10min in total)
+- [x] show current question along with qr
+- [x] make intro sound shorter max10s -> added alt. song
+- [ ] fialove ot (?)
+- [x] opravit casovac - it just restarts on timeout -> changed song to wrong
+- [x] show totals
 
 ## Jolik pre FF
 
@@ -100,3 +98,5 @@ See it as a presentation app with real-time polling
 
 ### TODOs:
 - [ ] add inter-slides with some text like "get ready..."
+- [ ] select right music for 2nd person in FInal round (music must not have
+  pauses, must be loud, fast+loud starts/endings, circa 10min in total)
