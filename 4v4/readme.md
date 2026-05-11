@@ -39,6 +39,12 @@ make stop
 6. Zmeniť názvy tímov
 7. Otvoriť herné okno.
 
+### NOTES
+- X-ka sa nerataju v pre-kole
+- Final round - 1. write open-ended answer 2. select points 3. show oe answer 3.
+  add points
+- 
+
 ---
 ### Pre dev:
 Pri vyvijani sw je lepsie spustit projektove `make dev`/`make dev-down` --- taky setup podporujr
@@ -57,7 +63,7 @@ hot reload pre zmeny frontend/backend.
     - [x] body timov vo final
 
 - [ ] timer in rounds (5s)
-- [ ] klasifikacia slido?
+- [x] klasifikacia slido?
     - [x] qr screen
     - [x] try out slido -> menti
 - [x] increase round question size
@@ -65,6 +71,14 @@ hot reload pre zmeny frontend/backend.
 - [ ] round table bg, font shadows->outline
 
 - [x] try to have one-column table
+- [ ] put team names in a row (separate div)
+- [ ] ba-dum-tss sound effect
+- [ ] show current question along with qr (
+- [ ] make intro sound shorter max10s
+- [ ] fialove ot
+- [ ] opravit casovac - it just restarts on timeout
+- [ ] select right music for 2nd person in FInal round (music must not have
+  pauses, must be loud, fast+loud starts/endings, circa 10min in total)
 
 ## Jolik pre FF
 
@@ -78,3 +92,7 @@ See it as a presentation app with real-time polling
 - Max 50 ludi, ale da sa to 1. prekrocit, co asi zneuzijeme pre feistival. Inac
   sa da kupit plan za 15eur, see [pricing](https://www.mentimeter.com/plans/education)
 - je treba predpripravit asi 10 open-ended slideov
+
+
+### TODOs:
+- [ ] add inter-slides with some text like "get ready..."
