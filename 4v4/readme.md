@@ -45,6 +45,10 @@ make stop
   add points
 - 
 
+- Alt prompts:
+  - Čo ti na FEI-ke najviac chýba?
+  - Čo spravíš ako úplne prvé, keď vyjdeš zo skúšky?
+
 ---
 ### Pre dev:
 Pri vyvijani sw je lepsie spustit projektove `make dev`/`make dev-down` --- taky setup podporujr
