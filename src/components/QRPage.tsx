@@ -8,6 +8,7 @@ interface QRPageProps {
 
 export default function QRPage({ game }: QRPageProps) {
   const [titleSize, setTitleSize] = useState(10);
+  const round = game.rounds[game.round]
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,18 +39,29 @@ export default function QRPage({ game }: QRPageProps) {
         }}
         className="inline-block align-middle"
       >
-        <div className="flex w-full justify-center">
+        <div className="flex w-full flex-col items-center justify-center">
           {game.settings.qr_code_url ? (
-            <div className="relative w-full aspect-square max-w-[500px]">
-              <Image
-                fill
-                style={{ objectFit: "contain" }}
-                src={`${game.settings.qr_code_url}?v=${Date.now()}`}
-                alt="QR Code"
-                priority
-                unoptimized
-              />
-            </div>
+            <>
+              <div className="relative w-full aspect-square max-w-[500px]">
+                <Image
+                  fill
+                  style={{ objectFit: "contain" }}
+                  src={`${game.settings.qr_code_url}?v=${Date.now()}`}
+                  alt="QR Code"
+                  priority
+                  unoptimized
+                />
+              </div>
+
+              {game.settings.hide_questions === false && (
+                <p
+                  id="roundQuestionText"
+                  className="mt-5 max-w-[1060px] py-5 text-center text-6xl text-foreground opacity-80 font-oswald"
+                >
+                  {round.question}
+                </p>
+              )}
+            </>
           ) : (
             <h1 className="text-4xl font-bold text-foreground">No QR-code Provided</h1>
           )}
