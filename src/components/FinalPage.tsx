@@ -122,13 +122,13 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
 
       <div className="relative my-3 h-16 w-full max-w-[1060px]">
         {/* Total (left) */}
-        {/* showFirstRound && showSecondRound && (
+        {showFirstRound && showSecondRound && (
           <div className="absolute left-0 top-1/2 w-fit -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
             <p id="finalRoundFirstTeamTotalText" className="text-4xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
               {t("total")} {t("number", { count: roundOnePoints })}
             </p>
           </div>
-        )*/}
+        )}
         {/* Timer */}
         <div className="absolute left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
           <p id="finalRoundTimerLabel" className="text-4xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
@@ -137,11 +137,11 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
         </div>
 
         {/* Total (right) */}
-        {/*<div className="absolute right-0 top-1/2 w-fit -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
+        {<div className="absolute right-0 top-1/2 w-fit -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
           <p id="finalRoundTotalPointsText" className="text-4xl font-bold uppercase" style={{ textShadow: TEXT_SHADOW }}>
             {t("total")} {t("number", { count: roundCurrentPoints })}
           </p>
-        </div>*/}
+        </div>}
       </div>
 
       {/* WIN TEXT */}
