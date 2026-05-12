@@ -1,33 +1,7 @@
 {
   "rounds": [
     {
-      "question": "Čo si doma myslia, že robíš?",
-      "answers": [
-        {
-          "ans": "ITčkár",
-          "pnt": 35
-        },
-        {
-          "ans": "Elektrikár",
-          "pnt": 20
-        },
-        {
-          "ans": "Hacker",
-          "pnt": 1
-        },
-        {
-          "ans": "Programátor",
-          "pnt": 1
-        },
-        {
-          "ans": "Strojár",
-          "pnt": 1
-        }
-      ],
-      "multiply": 1
-    },
-    {
-      "question": "Najčastejšia výhovorka prečo neprídeš na cvičenie/prednášku?",
+      "question": "Aká je tvoja najčastejšia výhovorka, prečo neprídeš na cvičenie/prednášku?",
       "answers": [
         {
           "ans": "Zaspal som",
@@ -53,7 +27,33 @@
       "multiply": 1
     },
     {
-      "question": "Čo robíš vo voľnom čase?",
+      "question": "Čo ti na FEI-ke najviac chýba?",
+      "answers": [
+        {
+          "ans": "Elektronika",
+          "pnt": 60
+        },
+        {
+          "ans": "Plátenka",
+          "pnt": 29
+        },
+        {
+          "ans": "Fľaša",
+          "pnt": 11
+        },
+        {
+          "ans": "Písacie potreby",
+          "pnt": 1
+        },
+        {
+          "ans": "Snacky",
+          "pnt": 1
+        }
+      ],
+      "multiply": 1
+    },
+    {
+      "question": "Ako tráviš svoj voľný čas mimo školy/práce?",
       "answers": [
         {
           "ans": "Nemám voľný čas",
@@ -83,7 +83,7 @@
       "multiply": 1
     },
     {
-      "question": "Aký je najlepší úlovok na JobFair?",
+      "question": "Aký najlepší úlovok si môžeš odniesť z JobFair?",
       "answers": [
         {
           "ans": "Elektronika",
@@ -111,7 +111,7 @@
   ],
   "final_round": [
     {
-      "question": "Aká je najlepšia akcia?",
+      "question": "Na ktorú FEI akciu chodíš najradšej?",
       "answers": [
         [
           "Feistival",
@@ -144,7 +144,7 @@
       ]
     },
     {
-      "question": "Aký je najlepší odbor na FEI?",
+      "question": "Ktorý odbor na FEI považuješ za najzaujímavejší/najlepší?",
       "answers": [
         [
           "IKT",
@@ -177,7 +177,7 @@
       ]
     },
     {
-      "question": "Aké AI ti pomáha pri učení?",
+      "question": "Ktorý AI nástroj najčastejšie používaš pri učení?",
       "answers": [
         [
           "ChatGPT",
@@ -202,7 +202,7 @@
       ]
     },
     {
-      "question": "Aká je najlepšia telesná, ktorú si vieš zapísať?",
+      "question": "Ktorú telesnú na FEIke sa najviac oplatí zapísať?",
       "answers": [
         [
           "Streľba",
