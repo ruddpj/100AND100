@@ -42,6 +42,15 @@ export default function QRPage({ game }: QRPageProps) {
         <div className="flex w-full flex-col items-center justify-center">
           {game.settings.qr_code_url ? (
             <>
+              {game.settings.hide_questions === false && (
+                <p
+                  id="roundQuestionText"
+                  className="mt-5 py-12 max-w-[80%] text-center text-8xl text-foreground opacity-80 font-oswald"
+                >
+                  {round.question}
+                </p>
+              )}
+
               <div className="relative w-full aspect-square max-w-[500px]">
                 <Image
                   fill
@@ -52,15 +61,6 @@ export default function QRPage({ game }: QRPageProps) {
                   unoptimized
                 />
               </div>
-
-              {game.settings.hide_questions === false && (
-                <p
-                  id="roundQuestionText"
-                  className="mt-5 max-w-[1060px] py-5 text-center text-6xl text-foreground opacity-80 font-oswald"
-                >
-                  {round.question}
-                </p>
-              )}
             </>
           ) : (
             <h1 className="text-4xl font-bold text-foreground">No QR-code Provided</h1>

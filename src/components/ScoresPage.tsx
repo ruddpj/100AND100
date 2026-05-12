@@ -54,7 +54,7 @@ export default function ScoresPage({ game }: ScorePageProps) {
       >
         <div className="flex w-full justify-center">
           {game.settings.logo_url ? (
-            <div className="relative mb-6 w-full max-h-[40vh] aspect-[16/9]" >
+            <div className="relative mb-6 w-full max-h-[50vh] aspect-[16/9]" >
               <Image
                 fill
                 style={{ objectFit: "contain" }}
@@ -69,16 +69,16 @@ export default function ScoresPage({ game }: ScorePageProps) {
           )}
         </div>
       </div>
-      <div className="w-full max-w-[1060px] rounded-2xl border-8 border-white bg-black p-6 my-6 text-white items-center font-oswald">
+      <div className="w-full max-w-[1060px] rounded-2xl border-8 border-white bg-black p-6 my-6 text-white items-center font-oswald font-bold">
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-xl border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 p-6 text-center">
-            <p className="text-2xl uppercase">{firstTeam?.name || `${t("team")} ${firstTeamIndex + 1}`}</p>
+            <p className="text-5xl uppercase">{firstTeam?.name || `${t("team")} ${firstTeamIndex + 1}`}</p>
             <p id="endingFirstTeamTotalText" className="mt-2 text-7xl font-bold" style={{ textShadow: TEXT_SHADOW }}>
               {t("number", { count: firstTeamTotal })}
             </p>
           </div>
           <div className="rounded-xl border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 p-6 text-center">
-            <p className="text-2xl uppercase">{secondTeam?.name || `${t("team")} ${secondTeamIndex + 1}`}</p>
+            <p className="text-5xl uppercase">{secondTeam?.name || `${t("team")} ${secondTeamIndex + 1}`}</p>
             <p id="endingSecondTeamTotalText" className="mt-2 text-7xl font-bold" style={{ textShadow: TEXT_SHADOW }}>
               {t("number", { count: secondTeamTotal })}
             </p>
