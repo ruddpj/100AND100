@@ -79,7 +79,7 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
       <div className="my-10 text-center">
         <p
           id="finalRoundTitle"
-          className="text-3xl font-bold uppercase text-foreground"
+          className="text-6xl font-bold uppercase text-foreground"
         >
           {game.settings.final_round_title || t("Fast Money")}
         </p>
