@@ -31,7 +31,6 @@ export default function QRPage({ game }: QRPageProps) {
 
   return (
     <div className="min-w-screen flex min-h-screen flex-col items-center justify-center bg-gradient-to-t from-primary-900 via-primary-500 to-primary-900 py-5">
-      {/* QR Code Section */}
       <div
         style={{
           width: `${titleSize}%`,
@@ -39,19 +38,21 @@ export default function QRPage({ game }: QRPageProps) {
         }}
         className="inline-block align-middle"
       >
-        <div className="flex w-full flex-col items-center justify-center">
+        <div className="relative flex w-full flex-col items-center justify-center">
           {game.settings.qr_code_url ? (
             <>
+              {/* Round Question */}
               {game.settings.hide_questions === false && (
                 <p
                   id="roundQuestionText"
-                  className="mt-5 py-12 max-w-[80%] text-center text-8xl text-foreground opacity-80 font-oswald"
+                  className="absolute bottom-full mb-9 w-full max-w-[90%] text-center text-4xl text-foreground opacity-80 font-oswald"
                 >
                   {round.question}
                 </p>
               )}
 
-              <div className="relative w-full aspect-square max-w-[500px]">
+              {/* QR Code Section */}
+              <div className="relative w-full aspect-square max-w-[20%]">
                 <Image
                   fill
                   style={{ objectFit: "contain" }}
