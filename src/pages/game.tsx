@@ -32,6 +32,7 @@ export default function GamePage() {
   const mistakeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const titleMusicRef = useRef<HTMLAudioElement | null>(null);
   const titleShortMusicRef = useRef<HTMLAudioElement | null>(null);
+  const isTimerPlayingRef = useRef<any | null>(null);
 
   const getTitleMusic = () => {
     if (!titleMusicRef.current) {
@@ -251,17 +252,37 @@ export default function GamePage() {
         console.debug("Title short music playback error reported");
       } else if (json.action === "set_timer") {
         setTimer(json.data);
+        if (isTimerPlayingRef.current) {
+          isTimerPlayingRef.current.pause();
+          isTimerPlayingRef.current = null;
+        }
       } else if (json.action === "stop_timer") {
         if (timerInterval) {
           clearInterval(timerInterval);
+        }
+        if (isTimerPlayingRef.current) {
+          isTimerPlayingRef.current.pause();
+          isTimerPlayingRef.current = null;
         }
       } else if (json.action === "start_timer") {
         timerInterval = setInterval(() => {
           setTimer((prevTimer) => {
             const nextTimer = prevTimer - 1;
             if (nextTimer > 0) {
+              if (!isTimerPlayingRef.current) {
+                isTimerPlayingRef.current = new Audio("tick.wav");
+                isTimerPlayingRef.current.play()
+                isTimerPlayingRef.current.addEventListener('ended', () => {
+                  isTimerPlayingRef.current = null;
+                });
+              }
+
               return nextTimer;
             } else {
+              if (isTimerPlayingRef.current) {
+                isTimerPlayingRef.current.pause();
+                isTimerPlayingRef.current = null;
+              }
               const audio = new Audio("try-again.mp3");
               audio.play();
 
