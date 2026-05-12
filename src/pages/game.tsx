@@ -273,7 +273,7 @@ export default function GamePage() {
             const nextTimer = prevTimer - 1;
             if (nextTimer > 0) {
               if (!isTimerPlayingRef.current) {
-                isTimerPlayingRef.current = new Audio("tick.wav");
+                isTimerPlayingRef.current = new Audio("timer.mp3");
                 isTimerPlayingRef.current.play()
                 isTimerPlayingRef.current.addEventListener('ended', () => {
                   isTimerPlayingRef.current = null;
