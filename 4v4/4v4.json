@@ -1,6 +1,35 @@
 {
   "rounds": [
     {
+<<<<<<< HEAD
+=======
+      "question": "Za koho ťa doma považujú, keď im povieš, čo študuješ/robíš?",
+      "answers": [
+        {
+          "ans": "ITčkár",
+          "pnt": 35
+        },
+        {
+          "ans": "Elektrikár",
+          "pnt": 20
+        },
+        {
+          "ans": "Hacker",
+          "pnt": 1
+        },
+        {
+          "ans": "Programátor",
+          "pnt": 1
+        },
+        {
+          "ans": "Strojár",
+          "pnt": 1
+        }
+      ],
+      "multiply": 1
+    },
+    {
+>>>>>>> 713a1fc3b0d005057b6862a584f0f98dd1f4d6bd
       "question": "Aká je tvoja najčastejšia výhovorka, prečo neprídeš na cvičenie/prednášku?",
       "answers": [
         {
@@ -27,6 +56,7 @@
       "multiply": 1
     },
     {
+<<<<<<< HEAD
       "question": "Čo ti na FEI-ke najviac chýba?",
       "answers": [
         {
@@ -53,6 +83,8 @@
       "multiply": 1
     },
     {
+=======
+>>>>>>> 713a1fc3b0d005057b6862a584f0f98dd1f4d6bd
       "question": "Ako tráviš svoj voľný čas mimo školy/práce?",
       "answers": [
         {
