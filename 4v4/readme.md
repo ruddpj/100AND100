@@ -78,25 +78,13 @@ hot reload pre zmeny frontend/backend.
 - [ ] ba-dum-tss sound effect
 - [x] show current question along with qr
 - [x] make intro sound shorter max10s -> added alt. song
-- [ ] fialove ot (?)
 - [x] opravit casovac - it just restarts on timeout -> changed song to wrong
 - [x] show totals
+- [x] center qr
+- [x] do not restart short music. reset on stop
 
 ## Jolik pre FF
 
-### [mentimeter app](https://www.mentimeter.com/app/home)
-
-See it as a presentation app with real-time polling
-
-- QR Code sa da stiahnut cez tl.Share hore vlavo.
-- AI Grouping sa zapina od >10 odpovedi
-- Otazky su samotne slides. Aby menit otazky, **musi byt zapnuta prezentacia :/**
-- Max 50 ludi, ale da sa to 1. prekrocit, co asi zneuzijeme pre feistival. Inac
-  sa da kupit plan za 15eur, see [pricing](https://www.mentimeter.com/plans/education)
-- je treba predpripravit asi 10 open-ended slideov
+### -> Slido
 
 
-### TODOs:
-- [ ] add inter-slides with some text like "get ready..."
-- [ ] select right music for 2nd person in FInal round (music must not have
-  pauses, must be loud, fast+loud starts/endings, circa 10min in total)
