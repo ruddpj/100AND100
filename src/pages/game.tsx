@@ -16,6 +16,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import NoSession from "../components/ui/NoSession";
+import { title } from "process";
 
 let timerInterval: NodeJS.Timeout | null = null;
 
@@ -236,6 +237,7 @@ export default function GamePage() {
       } else if (json.action === WSAction.PAUSE_TITLE_MUSIC) {
         const titleMusic = getTitleMusic();
         titleMusic.pause();
+        titleMusic.currentTime = 0;
       } else if (json.action === WSAction.PLAY_TITLE_SHORT_MUSIC) {
         const titleShortMusic = getTitleShortMusic();
         titleShortMusic.play().catch((error) => {
@@ -246,6 +248,7 @@ export default function GamePage() {
       } else if (json.action === WSAction.PAUSE_TITLE_SHORT_MUSIC) {
         const titleShortMusic = getTitleShortMusic();
         titleShortMusic.pause();
+        titleShortMusic.currentTime = 0;
       } else if (json.action === WSAction.TITLE_MUSIC_PLAYBACK_ERROR) {
         console.debug("Title music playback error reported");
       } else if (json.action === WSAction.TITLE_SHORT_MUSIC_PLAYBACK_ERROR) {
