@@ -28,7 +28,7 @@ export default function Round({ game }: RoundProps) {
       {game.settings.hide_questions === false && (
         <p
           id="roundQuestionText"
-          className="mt-1 max-w-[1060px] py-5 text-center text-6xl text-foreground opacity-80"
+          className="mt-1 max-w-[80%] py-5 text-center text-6xl text-foreground opacity-80"
         >
           {round.question}
         </p>

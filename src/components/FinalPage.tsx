@@ -79,13 +79,13 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
       <div className="my-10 text-center">
         <p
           id="finalRoundTitle"
-          className="text-3xl font-bold uppercase text-foreground"
+          className="text-6xl font-bold uppercase text-foreground"
         >
           {game.settings.final_round_title || t("Fast Money")}
         </p>
       </div>
 
-      <div className="w-full max-w-[1060px]">
+      <div className="w-full max-w-[80%]">
         <div className={`grid gap-3 ${showFirstRound && showSecondRound ? "lg:grid-cols-2" : ""}`}>
           {showFirstRound && (
             <div className="grid min-w-0 gap-3 lg:grid-flow-row">
@@ -101,7 +101,7 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
         </div>
       </div>
 
-      <div className="w-full max-w-[1060px] rounded-2xl border-8 border-white bg-black p-4">
+      <div className="w-full max-w-[80%] rounded-2xl border-8 border-white bg-black p-4">
         <div className={`grid gap-3 ${showFirstRound && showSecondRound ? "lg:grid-cols-2" : ""}`}>
           {showFirstRound && (
             <div className="grid min-w-0 gap-3 lg:grid-flow-row">
@@ -120,7 +120,7 @@ export default function FinalPage({ game, timer }: FinalPageProps) {
         </div>
       </div>
 
-      <div className="relative my-3 h-16 w-full max-w-[1060px]">
+      <div className="relative my-3 h-16 w-full max-w-[80%]">
         {/* Total (left) */}
         {showFirstRound && showSecondRound && (
           <div className="absolute left-0 top-1/2 w-fit -translate-y-1/2 rounded-lg border-4 border-white bg-gradient-to-tr from-primary-900 to-primary-500 px-4 py-2 text-white">
