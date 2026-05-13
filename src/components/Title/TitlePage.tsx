@@ -45,7 +45,7 @@ export default function TitlePage({ game }: TitlePageProps) {
   }
 
   return (
-    <div className="min-w-screen flex min-h-screen flex-col items-center justify-center bg-gradient-to-t from-primary-900 via-primary-500 to-primary-900 py-5">
+    <div className="relative min-w-screen flex min-h-screen flex-col items-center justify-center bg-gradient-to-t from-primary-900 via-primary-500 to-primary-900 py-0">
       {/* Logo Section */}
       <div
         style={{
@@ -85,6 +85,14 @@ export default function TitlePage({ game }: TitlePageProps) {
           <Team team={game.teams[1].name} players={returnTeamMates(1)} />
         </div>
       )}
+
+      <div className="pointer-events-none absolute bottom-10 right-10 max-w-[25%] sm:max-w-[600px]">
+        <img
+          src="/logo.png"
+          alt="Decorative corner"
+          className="w-full h-auto"
+        />
+      </div>
     </div>
   );
 }
