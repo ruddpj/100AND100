@@ -52,7 +52,7 @@ export default function QRPage({ game }: QRPageProps) {
               )}
 
               {/* QR Code Section */}
-              <div className="relative w-full aspect-square max-w-[20%]">
+              <div className="relative w-full aspect-square max-w-[27%]">
                 <Image
                   fill
                   style={{ objectFit: "contain" }}
